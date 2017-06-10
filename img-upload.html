@@ -11,7 +11,7 @@
 	<script src="js/repriseCtrl.js"></script>
 </head>
 <body ng-app="reprise">
-	<div class="wrapper">
+	<div class="wrapper" ng-controller="bannerImg">
 		<form class="imgUpload" enctype="multipart/form-data">
 			<p>Select file to upload:</p>
 			<input type="file" name="imgFile">
@@ -27,6 +27,12 @@
 			</div>
 			<div class="progress__bar"></div>
 		</div>
+		<h2>Existing media</h2>
+			<div style="display:inline-block;" ng-repeat="img in imgs">
+				<input type="radio" name="bannerImg">
+				<img style="width:200px" ng-src="{{img.filePath}}"/>
+				<h3>{{ img.name }}</h3>
+			</tr>
 	</div>
 </body>
 </html>

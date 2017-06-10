@@ -22,12 +22,14 @@
 	}else{
 		if (move_uploaded_file($upload['tmp_name'], $target_dir . $upload['name'])) {
         	
+			$uploadId = bin2hex(openssl_random_pseudo_bytes(5));
 			$uploadName = $_POST['name'];
 			$uploadAlt = $_POST['alt'];
-			$uploadPath = "/uploads/img/".$upload['name'];
+			$uploadPath = "uploads/img/".$upload['name'];
 
-			$sql = "INSERT INTO reprisecwickham.images (name, alt, filePath) VALUES (:name, :alt, :filePath)";
+			$sql = "INSERT INTO reprisecwickham.images (id, name, alt, filePath) VALUES (:id, :name, :alt, :filePath)";
 			$newImage = $conn->prepare($sql);
+			$newImage->bindParam(":id", $uploadId, PDO::PARAM_STR);
 			$newImage->bindParam(":name", $uploadName, PDO::PARAM_STR);
 			$newImage->bindParam(":alt", $uploadAlt, PDO::PARAM_STR);
 			$newImage->bindParam(":filePath", $uploadPath , PDO::PARAM_STR);

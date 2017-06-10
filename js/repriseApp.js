@@ -1,7 +1,8 @@
-var app = angular.module("database", []);
-app.controller("fileUpload",function($scope, $http){
-
-
+var app = angular.module("reprise", []);
+app.controller("bannerImg",function($scope, $http){
+	$http.get("ctrl/media-img.php").then(function(response){
+		$scope.imgs = response.data;
+	});
 });
 /*
 
