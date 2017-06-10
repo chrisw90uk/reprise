@@ -1,62 +1,27 @@
 <html lang="eng">
 <head>
-	<title>Quotes :: Chris Wickham</title>
+	<title>File Upload | Reprise</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<!-- angular install-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-	<!-- angular app and controller -->
-	<script src="js/app.js"></script>
-	<script src="js/quoteCtrl.js"></script>
+	<!-- angular app -->
+	<script src="js/repriseApp.js"></script>
 	<!-- site js -->
-	<script src="js/site.js"></script>
+	<script src="js/repriseCtrl.js"></script>
 </head>
-<body ng-app="productFilter">
-	<div class="wrapper" ng-controller="quoteCtrl">
-		<div class="quote__left">
-			<h1>Generate a quote</h1>
-			
-			<p>I have developed this robust quote generator for developers can ascertain a rough cost for the services I can provide. However, every video game is unique and the generator cannot possibly take every factor into consideration. If you are unhappy with your quote or require music that is not appropriately defined by the generator, please open negotiations using the button on the right.</p>
-			
-			<h2>Number of tracks</h2>
-			
-			<input type="number" ng-model="numOfTracks" ng-change="recalculateQuote()"/>
-			
-			<h2>Length</h2>
-			<div class="quote__radio">
-				<div class="radio__item" ng-repeat="item in lengths">
-					<input type="radio" name="trackLength" id="chk{{item.id}}" value="{{item.selected}}"
-					ng-click="updateLength(item)">
-					<label class="radio" for="chk{{item.id}}">{{ item.name }}</label>
-				</div>
+<body ng-app="reprise">
+	<div class="wrapper">
+		<form class="imgUpload" enctype="multipart/form-data">
+			<p>Select file to upload:</p>
+			<input type="file" name="imgFile[]">
+			<button type="submit">Upload File</button>
+		</form>
+		<div class="progress">
+			<div class="progress__status">
+				0%
 			</div>
-			
-			<h2>Deadline:</h2>
-			<div class="quote__radio quote--check-full">
-				<div class="radio__item" ng-repeat="item in deadlines">
-					<input type="radio" name="trackDeadline" id="chk{{item.id}}" value="{{item.selected}}"
-					ng-click="updateDeadline(item)">
-					<label class="radio" for="chk{{item.id}}">{{ item.name }}</label>
-				</div>
-			</div>
-			
-			<h2>Extras</h2>
-			<div class="quote__check">
-				<input type="checkbox" id="chkSheetMusic" ng-model="sheetMusic.selected" ng-change="recalculateQuote()">
-				<label for="chkSheetMusic">Sheet music?</label>
-			</div>
-			<div class="quote__check">
-				<input type="checkbox" id="chkStems" ng-model="stems.selected" ng-change="recalculateQuote()">
-				<label for="chkStems">Audio Stems?</label>
-			</div>
-		</div>
-		<div class="quote__right">
-			<div class="quote__value">
-				<h2>Your quote</h2>
-				<h1>{{ total | currency : "&pound;" : 0 }}<h1>
-				<h2>Not happy with your quote?</h2>
-				<a class="button quote__negotiate" >Open negotiations</a>
-			</div>
+			<div class="progress__bar"></div>
 		</div>
 	</div>
 </body>
