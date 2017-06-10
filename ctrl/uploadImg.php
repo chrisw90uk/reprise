@@ -21,7 +21,23 @@
 		echo "Sorry, your file was not uploaded";
 	}else{
 		if (move_uploaded_file($upload['tmp_name'], $target_dir . $upload['name'])) {
-        	echo "The file ".$upload["name"]." has been uploaded.";
+        	
+			$uploadName = $_POST['name'];
+			$uploadAlt = $_POST['alt'];
+			$uploadPath = "/uploads/img/".$upload['name'];
+
+			$sql = "INSERT INTO reprisecwickham.images (name, alt, filePath) VALUES (:name, :alt, :filePath)";
+			$newImage = $conn->prepare($sql);
+			$newImage->bindParam(":name", $uploadName, PDO::PARAM_STR);
+			$newImage->bindParam(":alt", $uploadAlt, PDO::PARAM_STR);
+			$newImage->bindParam(":filePath", $uploadPath , PDO::PARAM_STR);
+
+			if($newImage->execute()){
+				echo "Your image was uploaded successfully.";
+			}else{
+				echo "Sorry, there was an error uploading your file.";
+			}
+
     	} else {
         	echo "Sorry, there was an error uploading your file.";
     	}

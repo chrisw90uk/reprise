@@ -4,7 +4,10 @@ $(document).ready(function(){
 		event.preventDefault();
 
 		var data = new FormData();
+		data.append('name', $('input[name="imgName"]').val());
+		data.append('alt', $('input[name="imgAlt"]').val());
 		data.append('image', $('input[type=file]')[0].files[0]);
+
 		$.ajax({
 			xhr: function() {
 		        var xhr = new window.XMLHttpRequest();
