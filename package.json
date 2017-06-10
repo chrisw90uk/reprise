@@ -1,0 +1,22 @@
+{
+  "name": "reprise",
+  "version": "1.0.0",
+  "description": "A CMS for the performing arts",
+  "main": "gulpfile.js",
+  "author": "chrisw90uk",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8"
+  },
+  "scripts": {
+    "test": "Hello world"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisw90uk/reprise.git"
+  },
+  "license": "MIT"
+}
