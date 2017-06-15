@@ -1,0 +1,81 @@
+<html lang="eng">
+<head>
+	<title>Media Library | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="media__library" ng-controller="mediaLibrary">
+		<div class="media__popup">
+			<ul>
+				<li ng-repeat="section in media" ng-class="{selected: activeTab==$index}" ng-click="changeTab($index)" class="popup__tab">{{ section.name }}</li>
+			</ul>
+			<div>
+				<div ng-repeat="section in media" ng-show="activeTab==$index" class="media__items media--{{ section.class }}">
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder.png" />
+							</div>
+							<p>Name of image</p>
+							<p>350 x 220</p>
+						</div>
+					</div>
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder.png" />
+							</div>
+							<p>Name of image</p>
+							<p>350 x 220</p>
+						</div>
+					</div>
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder-portrait.png" />
+							</div>
+							<p>Name of image</p>
+							<p>220 x 350</p>
+						</div>
+					</div>
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder.png" />
+							</div>
+							<p>Name of image</p>
+							<p>350 x 220</p>
+						</div>
+					</div>
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder.png" />
+							</div>
+							<p>Name of image</p>
+							<p>350 x 220</p>
+						</div>
+					</div>
+					<div class="media__item">
+						<div>
+							<div class="item__image">
+								<img src="img/img-placeholder.png" />
+							</div>
+							<p>Name of image</p>
+							<p>350 x 220</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

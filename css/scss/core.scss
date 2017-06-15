@@ -13,6 +13,7 @@
 html, body{
 	margin:0;
 	background: #FFF;
+	font-size:0;
 }
 .wrapper{
 	margin: 0 auto;
@@ -30,7 +31,7 @@ h3{
 	font-size:24px;
 }
 
-p, a, span, label{
+p, a, span, label, li{
 	font-family: Fira;
 	font-size:14px;
 }
