@@ -1,6 +1,6 @@
 <?php require 'config.php' ?>
 <?php
-	$target_dir = "/uploads/img/";
+	$target_dir = "../uploads/img/";
 	$upload = $_FILES['image'];
 	list($uploadWidth, $uploadHeight) = getimagesize($upload['tmp_name']);
 	if ( 0 < $upload['error'] ) {
@@ -26,7 +26,7 @@
 			$uploadId = bin2hex(openssl_random_pseudo_bytes(5));
 			$uploadName = $_POST['name'];
 			$uploadAlt = $_POST['alt'];
-			$uploadPath = "uploads/img/".$upload['name'];
+			$uploadPath = "/uploads/img/".$upload['name'];
 			
 
 			$sql = "INSERT INTO reprisecwickham.images (id, name, alt, filePath, height, width) VALUES (:id, :name, :alt, :filePath, :height, :width)";
