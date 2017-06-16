@@ -30,10 +30,10 @@ app.controller("mediaLibrary", function($scope, $http){
 		$scope.activeTab = index;
 	};
 
-	$http.get("ctrl/images.php").then(function(response){
+	$http.get("ctrl/media-images.php").then(function(response){
 		$scope.images = response.data;
 	});
-
+/*
 	$http.get("ctrl/audio.php").then(function(response){
 		$scope.audio = response.data;
 	});
@@ -41,7 +41,7 @@ app.controller("mediaLibrary", function($scope, $http){
 	$http.get("ctrl/video.php").then(function(response){
 		$scope.video = response.data;
 	});
-
+*/
 });
 
 /*

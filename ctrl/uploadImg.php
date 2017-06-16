@@ -1,7 +1,8 @@
 <?php require 'config.php' ?>
 <?php
-	$target_dir = "../uploads/img/";
+	$target_dir = "/uploads/img/";
 	$upload = $_FILES['image'];
+	list($uploadWidth, $uploadHeight) = getimagesize($upload['tmp_name']);
 	if ( 0 < $upload['error'] ) {
         echo 'Error: ' . $_FILES['image']['error'];
         return;
@@ -26,13 +27,16 @@
 			$uploadName = $_POST['name'];
 			$uploadAlt = $_POST['alt'];
 			$uploadPath = "uploads/img/".$upload['name'];
+			
 
-			$sql = "INSERT INTO reprisecwickham.images (id, name, alt, filePath) VALUES (:id, :name, :alt, :filePath)";
+			$sql = "INSERT INTO reprisecwickham.images (id, name, alt, filePath, height, width) VALUES (:id, :name, :alt, :filePath, :height, :width)";
 			$newImage = $conn->prepare($sql);
 			$newImage->bindParam(":id", $uploadId, PDO::PARAM_STR);
 			$newImage->bindParam(":name", $uploadName, PDO::PARAM_STR);
 			$newImage->bindParam(":alt", $uploadAlt, PDO::PARAM_STR);
 			$newImage->bindParam(":filePath", $uploadPath , PDO::PARAM_STR);
+			$newImage->bindParam(":height", $uploadHeight, PDO::PARAM_STR);
+			$newImage->bindParam(":width", $uploadWidth , PDO::PARAM_STR);
 
 			if($newImage->execute()){
 				echo "Your image was uploaded successfully.";
