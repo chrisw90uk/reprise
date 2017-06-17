@@ -1,24 +1,22 @@
 <html lang="eng">
 <head>
-	<title>File Upload | Reprise</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Video Upload | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<!-- angular install-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app -->
-	<script src="js/repriseApp.js"></script>
+	<script src="../js/repriseApp.js"></script>
 	<!-- site js -->
-	<script src="js/repriseCtrl.js"></script>
+	<script src="../js/repriseCtrl.js"></script>
 </head>
 <body ng-app="reprise">
-	<div class="wrapper" ng-controller="bannerImg">
-		<form class="imgUpload" enctype="multipart/form-data">
+	<div class="wrapper">
+		<form class="videoUpload" enctype="multipart/form-data">
 			<p>Select file to upload:</p>
-			<input type="file" name="imgFile">
+			<input type="file" name="videoFile">
 			<label>Name</label>
-			<input type="text" name="imgName"/>
-			<label>Alt Text</label>
-			<input type="text" name="imgAlt"/>
+			<input type="text" name="videoName"/>
 			<button type="submit">Upload File</button>
 		</form>
 		<div class="progress">
@@ -27,12 +25,6 @@
 			</div>
 			<div class="progress__bar"></div>
 		</div>
-		<h2>Existing media</h2>
-			<div style="display:inline-block;" ng-repeat="img in imgs">
-				<input type="radio" name="bannerImg">
-				<img style="width:200px" ng-src="{{img.filePath}}"/>
-				<h3>{{ img.name }}</h3>
-			</tr>
 	</div>
 </body>
 </html>
