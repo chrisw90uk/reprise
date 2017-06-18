@@ -44,6 +44,26 @@ app.controller("mediaLibrary", function($scope, $http){
 
 });
 
+app.controller("addDate",function($scope, $http){
+	$http.get("ctrl/current-dates.php").then(function(response){
+		$scope.currentDates = response.data;
+		console.log("retrieved");
+	})
+	$scope.addDate = function(){
+		console.log("submitted");
+		var formData = JSON.stringify($scope.date);
+		$http({
+			method: 'POST',
+			url: 'ctrl/add-date.php',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			data: formData
+		}).then(function(response){
+			alert(response.data);
+			location.reload();
+		})
+	}
+});
+
 /*
 
 app.controller("chatCtrl",function($scope, $http){

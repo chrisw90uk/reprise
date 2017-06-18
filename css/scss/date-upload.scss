@@ -1,0 +1,35 @@
+.date{
+	&__add{
+		ul{
+			padding:0;
+			margin: 0 0 5px 0;
+			display:flex;
+		}
+		li{
+			list-style-type: none;
+			padding: 8px 15px;
+			display:inline-block;
+			margin: 0 5px 0 0;
+		}
+	}
+	&__headers{
+		li{
+			background: #005B9A;
+			color: #FFF;
+		}
+	}
+	&__dates{
+		ul{
+			li{background:#f4f2f2;}
+			&:nth-child(even) li{
+				background:#dbd9d9;
+			}
+		}
+	}
+	&--date{
+		width:10%;
+	}
+	&--name, &--venue, &--location{
+		width:25%;
+	}
+}

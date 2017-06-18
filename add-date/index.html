@@ -1,0 +1,54 @@
+<html lang="eng">
+<head>
+	<title>Add a Date | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper date__add" ng-controller="addDate">
+		<h2>Add a date</h2>
+		<p>This section can be used to create new instances of gigs, performances, shows and appeareances, as well as provide fans with a link to purchase tickets. Dates that have passed will automatically be archived, and you can view those <a href='#'>here</a>. Create a new date by using the form below.<p>
+		<p>If you require fields to be added or removed, please <a href="mailto:">contact our support team</a></p>
+		<form ng-submit="addDate()" >
+			<div class="form-field">
+				<input type="text" ng-model="date.name" placeholder="Name of Event"/>
+			</div>
+			<div class="form-field">
+				<input type="text" ng-model="date.venue" placeholder="Venue"/>
+			</div>
+			<div class="form-field">
+				<input type="text" ng-model="date.location" placeholder="Location"/>
+			</div>
+			<div class="form-field">
+				<input type="date" ng-model="date.datetime" placeholder="Date"/>
+			</div>
+			<div class="form-field">
+				<input type="text" ng-model="date.tickets" placeholder="Link to tickets"/>
+			</div>
+			<button type="submit">Add date</button>
+		</form>
+		<h3>Current dates</h3>
+		<ul class="date__headers">
+			<li class="date--date">Date</li>
+			<li class="date--name">Event Name</li>
+			<li class="date--venue">Venue</li>
+			<li class="date--location">Location</li>
+		</ul>
+		<div class="date__dates">
+			<ul ng-repeat="item in currentDates">
+				<li class="date--date">{{item.date}}</li>
+				<li class="date--name">{{item.event}}</li>
+				<li class="date--venue">{{item.venue}}</li>
+				<li class="date--location">{{item.location}}</li>
+			<ul>
+		</div>
+	</div>
+</body>
+</html>
