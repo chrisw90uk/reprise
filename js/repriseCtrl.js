@@ -1,4 +1,9 @@
 $(document).ready(function(){
+	
+	$('input[type=file]').change(function (e) {
+		console.log(this.files[0].size.toString());
+	});
+
 
 	$("form.imgUpload").submit(function(event){
 		event.preventDefault();

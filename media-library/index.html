@@ -18,58 +18,35 @@
 				<li ng-repeat="section in media" ng-class="{selected: activeTab==$index}" ng-click="changeTab($index)" class="popup__tab">{{ section.name }}</li>
 			</ul>
 			<div>
-				<div ng-repeat="section in media" ng-show="activeTab==$index" class="media__items media--{{ section.class }}">
-					<div class="media__item">
+				<div ng-show="activeTab==0" class="media__items media--images">
+					<div class="media__item" ng-repeat="image in images">
 						<div>
 							<div class="item__image">
-								<img src="img/img-placeholder.png" />
+								<img ng-src="{{image.filePath}}" src="img/img-placeholder.png" />
 							</div>
-							<p>Name of image</p>
+							<p>{{image.name}}</p>
+							<p>{{image.width}} x {{image.height}}</p>
+						</div>
+					</div>
+				</div>
+				<div ng-show="activeTab==2" class="media__items media--audio">
+					<div class="media__item" ng-repeat="image in images">
+						<div>
+							<div class="item__image">
+								<img ng-src="{{image.filePath}}" src="img/img-placeholder.png" />
+							</div>
+							<p>{{image.name}}</p>
 							<p>350 x 220</p>
 						</div>
 					</div>
-					<div class="media__item">
+				</div>
+				<div ng-show="activeTab==3" class="media__items media--videos">
+					<div class="media__item" ng-repeat="image in images">
 						<div>
 							<div class="item__image">
-								<img src="img/img-placeholder.png" />
+								<img ng-src="{{image.filePath}}" src="img/img-placeholder.png" />
 							</div>
-							<p>Name of image</p>
-							<p>350 x 220</p>
-						</div>
-					</div>
-					<div class="media__item">
-						<div>
-							<div class="item__image">
-								<img src="img/img-placeholder-portrait.png" />
-							</div>
-							<p>Name of image</p>
-							<p>220 x 350</p>
-						</div>
-					</div>
-					<div class="media__item">
-						<div>
-							<div class="item__image">
-								<img src="img/img-placeholder.png" />
-							</div>
-							<p>Name of image</p>
-							<p>350 x 220</p>
-						</div>
-					</div>
-					<div class="media__item">
-						<div>
-							<div class="item__image">
-								<img src="img/img-placeholder.png" />
-							</div>
-							<p>Name of image</p>
-							<p>350 x 220</p>
-						</div>
-					</div>
-					<div class="media__item">
-						<div>
-							<div class="item__image">
-								<img src="img/img-placeholder.png" />
-							</div>
-							<p>Name of image</p>
+							<p>{{image.name}}</p>
 							<p>350 x 220</p>
 						</div>
 					</div>
