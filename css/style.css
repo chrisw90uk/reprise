@@ -39,6 +39,12 @@ a {
   color: #71B238;
   cursor: pointer; }
 
+.fa {
+  font-family: "FontAwesome";
+  font-size: 60px;
+  color: #FFF;
+  margin-bottom: 10px; }
+
 form {
   margin: 10px 0; }
 
@@ -76,6 +82,83 @@ button {
     display: none; }
 
 /* Modules */
+.dashboard.wrapper {
+  padding: 0; }
+
+.dashboard__nav {
+  display: flex;
+  flex-wrap: wrap; }
+
+.dashboard__item {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 50px;
+  background: #193153;
+  color: #FFF;
+  cursor: pointer;
+  text-decoration: none; }
+  .dashboard__item h2 {
+    margin-bottom: 0;
+    line-height: 1.2; }
+  .dashboard__item > div {
+    transition: .2s; }
+  .dashboard__item:hover > div {
+    transform: scale(1.1); }
+  @media all and (min-width: 1025px) {
+    .dashboard__item:nth-child(8n-1), .dashboard__item:nth-child(8n-3), .dashboard__item:nth-child(8n-4), .dashboard__item:nth-child(8n-6) {
+      background: #375E7F; } }
+  @media all and (max-width: 1024px) and (min-width: 769px) {
+    .dashboard__item:nth-child(6n), .dashboard__item:nth-child(6n-2), .dashboard__item:nth-child(6n-4) {
+      background: #375E7F; } }
+  @media all and (min-width: 501px) and (max-width: 768px) {
+    .dashboard__item:nth-child(4n), .dashboard__item:nth-child(4n-3) {
+      background: #375E7F; } }
+  @media all and (max-width: 500px) {
+    .dashboard__item:nth-child(even) {
+      background: #375E7F; } }
+
+@media all and (max-width: 1024px) {
+  .dashboard__item {
+    width: 33.33333%; } }
+
+@media all and (max-width: 768px) {
+  .dashboard__item {
+    width: 50%; } }
+
+@media all and (max-width: 500px) {
+  .dashboard__item {
+    width: 100%;
+    padding: 20px; } }
+
+.date__add ul {
+  padding: 0;
+  margin: 0 0 5px 0;
+  display: flex; }
+
+.date__add li {
+  list-style-type: none;
+  padding: 8px 15px;
+  display: inline-block;
+  margin: 0 5px 0 0; }
+
+.date__headers li {
+  background: #005B9A;
+  color: #FFF; }
+
+.date__dates ul li {
+  background: #f4f2f2; }
+
+.date__dates ul:nth-child(even) li {
+  background: #dbd9d9; }
+
+.date--date {
+  width: 15%; }
+
+.date--name, .date--venue, .date--location {
+  width: 25%; }
+
 .media__library {
   position: fixed;
   height: 100%;
@@ -179,30 +262,3 @@ button {
     width: 100%; }
   .item__image {
     height: 140px; } }
-
-.date__add ul {
-  padding: 0;
-  margin: 0 0 5px 0;
-  display: flex; }
-
-.date__add li {
-  list-style-type: none;
-  padding: 8px 15px;
-  display: inline-block;
-  margin: 0 5px 0 0; }
-
-.date__headers li {
-  background: #005B9A;
-  color: #FFF; }
-
-.date__dates ul li {
-  background: #f4f2f2; }
-
-.date__dates ul:nth-child(even) li {
-  background: #dbd9d9; }
-
-.date--date {
-  width: 15%; }
-
-.date--name, .date--venue, .date--location {
-  width: 25%; }
