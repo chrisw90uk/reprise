@@ -43,10 +43,10 @@
 		</ul>
 		<div class="date__dates">
 			<ul ng-repeat="item in currentDates">
-				<li class="date--date">{{item.date}}</li>
-				<li class="date--name">{{item.event}}</li>
-				<li class="date--venue">{{item.venue}}</li>
-				<li class="date--location">{{item.location}}</li>
+				<li class="date--date">{{::item.date}}</li>
+				<li class="date--name">{{::item.event}}</li>
+				<li class="date--venue">{{::item.venue}}</li>
+				<li class="date--location">{{::item.location}}</li>
 				<li>
 					<a class="button" ng-click="editDate(item)">Edit</a>
 					<a class="button" ng-click="deleteDate(item.id)">Delete</a>
@@ -56,7 +56,7 @@
 		<div ng-show="editing" class="date__edit">
 			<div class="date__popup">
 				<h3>Edit dates</h3>
-				<form ng-submit="saveDate()" >
+				<form ng-submit="saveDate(editingDate.id)" >
 					<div class="form-field">
 						<input type="text" ng-model="editingDate.event"/>
 					</div>
@@ -74,7 +74,7 @@
 					</div>
 					<div class="date__edit-btns">
 						<button type="submit">Save</button>
-						<button ng-click="closePopup()">Cancel</button>
+						<a class="button" ng-click="closePopup()">Cancel</a>
 					</div>
 				</form>
 			</div>
