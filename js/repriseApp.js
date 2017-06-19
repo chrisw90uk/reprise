@@ -45,6 +45,10 @@ app.controller("mediaLibrary", function($scope, $http){
 });
 
 app.controller("addDate",function($scope, $http){
+	
+	$scope.editingDate = {};
+	$scope.editing = false;
+	
 	$http.get("ctrl/current-dates.php").then(function(response){
 		$scope.currentDates = response.data;
 		console.log("retrieved");
@@ -59,9 +63,31 @@ app.controller("addDate",function($scope, $http){
 			data: formData
 		}).then(function(response){
 			alert(response.data);
-			location.reload();
+			$http.get("ctrl/current-dates.php").then(function(response){
+				$scope.currentDates = response.data;
+				console.log("retrieved");
+			});
 		})
 	}
+	
+	
+	$scope.editDate = function(item){
+		$scope.editing = true;
+		$scope.editingDate = item;
+	}
+	$scope.deleteDate = function(id){
+		$http.post('ctrl/delete-date.php?id=' + id).then(function(response){
+			alert(response.data);
+			$http.get("ctrl/current-dates.php").then(function(response){
+				$scope.currentDates = response.data;
+				console.log("retrieved");
+			})
+		});
+	}
+	$scope.closePopup = function(){
+		$scope.editing = false;
+	}
+	
 });
 
 /*
