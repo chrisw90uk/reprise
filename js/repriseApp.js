@@ -64,6 +64,15 @@ app.controller("addDate",function($scope, $http){
 	}
 });
 
+app.controller("editImage",function($scope, $http){
+	
+	$scope.uploadActive = false;
+	
+	$scope.uploadImage = function(){
+		$scope.uploadActive = true;
+	}
+});
+
 /*
 
 app.controller("chatCtrl",function($scope, $http){

@@ -1,0 +1,20 @@
+.image{
+	&__select{
+		h3{
+			margin-bottom:0;
+		}
+		margin-bottom:25px;
+	}
+	&__info, &__btns{
+		display:inline-block;
+		vertical-align:middle;
+	}
+	&__info{
+		width:400px;
+	}
+	&__btns{
+		.button{
+			margin-left:10px;
+		}
+	}
+}

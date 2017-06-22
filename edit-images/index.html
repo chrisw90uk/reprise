@@ -1,0 +1,75 @@
+<html lang="eng">
+<head>
+	<title>File Upload | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper" ng-controller="editImage">
+		<h2>Edit images</h2>
+		<p>Change featured images across your website using files you've previously uploaded to your media library. Alternatively, you can upload a new image.</p>
+		<div class="image__select">
+			<div class="image__info">
+				<h3>Banner</h3>
+				<small>The main image on your homepage</small>
+			</div>
+			<div class="image__btns">
+				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+				<a class="button button--small">Choose from existing</a>
+			</div>
+		</div>
+		<div class="image__select">
+			<div class="image__info">
+				<h3>About</h3>
+				<small>The image which accompanies your biography.</small>
+			</div>
+			<div class="image__btns">
+				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+				<a class="button button--small">Choose from existing</a>
+			</div>
+		</div>
+		<div class="image__select">
+			<div class="image__info">
+				<h3>Tour</h3>
+				<small>The image which accompanies your list of tour dates.</small>
+			</div>
+			<div class="image__btns">
+				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+				<a class="button button--small">Choose from existing</a>
+			</div>
+		</div>
+		<div ng-show="uploadActive" class="image__upload freeze">
+			<div class="image__popup popup">
+				<h3>Upload an image</h3>
+				<form class="imgUpload" enctype="multipart/form-data">
+					<div class="form-field">
+						<p>Select file to upload:</p>
+						<input type="file" name="imgFile">
+					</div>
+					<div class="form-field">
+						<label>Name</label>
+						<input type="text" name="imgName"/>
+					</div>
+					<div class="form-field">
+						<label>Alt Text</label>
+						<input type="text" name="imgAlt"/>
+					</div>
+					<button type="submit">Upload File</button>
+				</form>
+				<div class="progress">
+					<div class="progress__status">
+						0%
+					</div>
+					<div class="progress__bar"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

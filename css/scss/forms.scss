@@ -9,10 +9,11 @@ form{
 		width:100%;
 		font-size:14px;
 		font-family: Fira;
-		padding:5px;
+		padding: 8px 5px;
+		border:none;
 	}
 }
-button{
+.button, button{
 	background: #005B9A;
 	border: none;
 	padding: 10px 18px;
@@ -23,5 +24,9 @@ button{
 	&:hover{
 		background: lighten(#005B9A,10%);
 		cursor: pointer;
+	}
+	&--small{
+		padding: 8px 15px;
+		font-size:18px;
 	}
 }
