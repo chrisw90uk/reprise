@@ -30,7 +30,7 @@ app.controller("mediaLibrary", function($scope, $http){
 		$scope.activeTab = index;
 	};
 
-	$http.get("ctrl/images.php").then(function(response){
+	$http.get("ctrl/media-images.php").then(function(response){
 		$scope.images = response.data;
 	});
 	/*
@@ -67,9 +67,14 @@ app.controller("addDate",function($scope, $http){
 app.controller("editImage",function($scope, $http){
 	
 	$scope.uploadActive = false;
+	$scope.libraryActive = false;
 	
 	$scope.uploadImage = function(){
 		$scope.uploadActive = true;
+	}
+	$scope.selectImage = function(){
+		$scope.libraryActive = true;
+		console.log("library active");
 	}
 });
 

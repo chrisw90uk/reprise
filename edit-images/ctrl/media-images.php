@@ -1,7 +1,7 @@
 <?php require 'config.php' ?>
 <?php
 
-	$sql = "SELECT id, name, filePath FROM reprisecwickham.images";
+	$sql = "SELECT id, name, filePath, height, width FROM reprisecwickham.images";
 	$images = $conn->prepare($sql);
 	$images->execute();
 	$result = $images->fetchAll(PDO::FETCH_ASSOC);

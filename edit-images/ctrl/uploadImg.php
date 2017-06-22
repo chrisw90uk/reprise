@@ -1,6 +1,6 @@
 <?php require 'config.php' ?>
 <?php
-	$target_dir = "../uploads/img/";
+	$target_dir = "../../uploads/img/";
 	$upload = $_FILES['image'];
 	list($uploadWidth, $uploadHeight) = getimagesize($upload['tmp_name']);
 	if ( 0 < $upload['error'] ) {

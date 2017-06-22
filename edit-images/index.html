@@ -21,7 +21,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div class="image__select">
@@ -31,7 +31,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div class="image__select">
@@ -41,7 +41,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div ng-show="uploadActive" class="image__upload freeze">
@@ -69,6 +69,9 @@
 					<div class="progress__bar"></div>
 				</div>
 			</div>
+		</div>
+		<div class="media__library freeze" ng-controller="mediaLibrary" ng-if="libraryActive" ng-show="libraryActive">
+			<div ng-include="'includes/media-library.html'"></div>
 		</div>
 	</div>
 </body>
