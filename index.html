@@ -8,13 +8,24 @@
 	<!-- angular install-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app and controller -->
+	<script src="js/repriseApp.js"></script>
 </head>
 
 <body ng-app="reprise" ng-controller="display">
 	<div class="wrapper">
+		<h2>Welcome to Chris' page</h2>
 		<h3>Social Media</h3>
 		<div class="display__social">
 			<img ng-repeat="item in social" ng-src="social-media/icons/{{ item.name | lowercase }}.png">
+		</div>
+		<h3>Tour dates</h3>
+		<div class="display__dates">
+			<div class="display__date" ng-repeat="item in dates">
+				<p><strong>{{ item.event }}</strong></p>
+				<small>{{ item.datetime }}</small>
+				<p>{{ item.venue }}</p>
+				<p>{{ item.location }}</p>
+			</div>
 		</div>
 	</div>
 </body>
