@@ -15,15 +15,15 @@
 	<div class="wrapper social" ng-controller="socialMedia">
 		<h2>Social Media</h2>
 		<p>Easily integrate your social media with Reprise by selecting from the options below and specifying the applicable username or URL. The corresonding icons will appear on your display page based on your chosen theme.</p>
-		<div class="social__current">
+		<div class="social__current" ng-show="existingSocial">
 			<h3>Edit existing social media</h3>
-			<div class="social__item" ng-repeat="item in platforms">
-				<img ng-click="editPlatform(item)" ng-src='{{ item.icon }}'/>
+			<div class="social__item" ng-repeat="item in existing">
+				<img ng-click="editPlatform(item)" ng-src='icons/{{ item.name | lowercase }}.png'/>
 			</div>
 		</div>
 		<div class="social__items">
 			<h3>Available networks</h3>
-			<div class="social__item" ng-repeat="item in platforms | orderBy: 'name'">
+			<div class="social__item" ng-repeat="item in platforms | orderBy: 'name'" ng-hide="filterPlatforms(item)">
 				<img ng-click="selectPlatform(item)" ng-src='{{ item.icon }}'/>
 			</div>
 		</div>

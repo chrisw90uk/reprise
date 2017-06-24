@@ -1,10 +1,10 @@
 <h3>{{selected.name}}</h3>
 <div class="social__details">
-	<img ng-src='{{ selected.icon }}'/>
-	<input type="text" ng-model="selected.user" />
+	<img ng-src='icons/{{ selected.name | lowercase }}.png' />
+	<input type="text" ng-model="selected.handle" />
 </div>
 <div class="buttons--right">
 	<a ng-click="closePopup()" class="button button--small">Cancel</a>
-	<a class="button button--small">Delete</a>
-	<a class="button button--small">Save</a>
+	<a  ng-click="deletePlatform()" class="button button--small">Delete</a>
+	<a ng-click="saveEdit()" class="button button--small">Save</a>
 </div>
