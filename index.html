@@ -1,6 +1,6 @@
 <html lang="eng">
 <head>
-	<title>Dashboard | Reprise</title>
+	<title>Home | Reprise</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -10,61 +10,11 @@
 	<!-- angular app and controller -->
 </head>
 
-<body>
-	<div class="wrapper dashboard">
-		<div class="dashboard__nav">
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-cog" aria-hidden="true"></i>
-					<h2>Edit<br/>details</h2>
-				</div>
-			</div>
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-user-circle" aria-hidden="true"></i>
-					<h2>Add/edit<br/>bio</h2>
-				</div>
-			</div>
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-camera" aria-hidden="true"></i>
-					<h2>Edit banner image</h2>
-				</div>
-			</div>
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-play-circle" aria-hidden="true"></i>
-					<h2>Add/edit tracks</h2>
-				</div>
-			</div>
-			<a href="add-date" class="dashboard__item">
-				<div>
-					<i class="fa fa-calendar" aria-hidden="true"></i>
-					<h2>Add/edit dates</h2>
-				</div>
-			</a>
-			<a href="video-upload" class="dashboard__item">
-				<div>
-					<i class="fa fa-video-camera" aria-hidden="true"></i>
-					<h2>Add/edit video</h2>
-				</div>
-			</a>
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-newspaper-o" aria-hidden="true"></i>
-					<h2>Add news article</h2>
-				</div>
-			</div>
-			<div class="dashboard__item">
-				<div>
-					<i class="fa fa-comments-o" aria-hidden="true"></i>
-					<h2>Social <br />media</h2>
-				</div>
-			</div>
-			
-			<div class="dashboard__item"></div>
-			<div class="dashboard__item"></div>
-			<div class="dashboard__item"></div>
+<body ng-app="reprise" ng-controller="display">
+	<div class="wrapper">
+		<h3>Social Media</h3>
+		<div class="display__social">
+			<img ng-repeat="item in social" ng-src="social-media/icons/{{ item.name | lowercase }}.png">
 		</div>
 	</div>
 </body>

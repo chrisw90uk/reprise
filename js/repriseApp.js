@@ -5,6 +5,16 @@ app.controller("bannerImg",function($scope, $http){
 	});
 });
 
+app.controller("display",function($scope, $http){
+	
+	//social media
+	$http.get("ctrl/display-social.php").then(function(response){
+		$scope.social = response.data;
+	});
+	
+	
+});
+
 app.controller("mediaLibrary", function($scope, $http){
 	
 	//Tab function
