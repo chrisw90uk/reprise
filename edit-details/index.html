@@ -1,0 +1,31 @@
+<html lang="eng">
+<head>
+	<title>Edit Details | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper details__edit" ng-controller="editDetails">
+		<h2>Edit Details</h2>
+		<p>This section allows you to edit basic information about your act.</p>
+		<form ng-submit="editDetails()" >
+			<div class="form-field">
+				<label>Name</label>
+				<input type="text" ng-model="details.name" placeholder="Name"/>
+			</div>
+			<div class="form-field">
+				<label>Subtitle</label>
+				<input type="text" ng-model="details.subtitle" placeholder="Venue"/>
+			</div>
+			<button type="submit">Edit details</button>
+		</form>
+	</div>
+</body>
+</html>

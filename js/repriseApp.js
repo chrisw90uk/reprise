@@ -78,6 +78,60 @@ app.controller("editImage",function($scope, $http){
 	}
 });
 
+app.controller("editDetails", function($scope, $http){
+	
+});
+
+app.controller("socialMedia", function($scope, $http){
+	
+	$scope.showPopup = false;
+	$scope.selected = {};
+	
+	$scope.platforms = [
+		{
+			name: "Facebook",
+			icon: 'icons/facebook.png'
+		},
+		{
+			name: "Twitter",
+			icon: 'icons/twitter.png'
+		},
+		{
+			name: "LinkedIn",
+			icon: 'icons/linkedin.png'
+		},
+		{
+			name: "Instagram",
+			icon: 'icons/instagram.png'
+		},
+		{
+			name: "Pinterest",
+			icon: 'icons/pinterest.png'
+		},
+		{
+			name: "YouTube",
+			icon: 'icons/youtube.png'
+		}
+	];
+	
+	$scope.selectPlatform = function(item){
+		$scope.showPopup = true;
+		$scope.newItem = true;
+		$scope.selected = item;
+	}
+	$scope.editPlatform = function(item){
+		$scope.showPopup = true;
+		$scope.editItem = true;
+		$scope.selected = item;
+	}
+	$scope.closePopup = function(){
+		$scope.showPopup = false;
+		$scope.editItem = false;
+		$scope.newItem = false;
+	}
+	
+});
+
 /*
 
 app.controller("chatCtrl",function($scope, $http){

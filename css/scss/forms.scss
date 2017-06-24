@@ -1,16 +1,19 @@
 form{
 	margin: 10px 0;
 }
+input,select,textarea{
+	font-size:14px;
+	font-family: Fira;
+	padding: 8px 5px;
+	border:none;
+	background: #E0E0E0;
+}
 .form-field{
 	display:block;
 	max-width:400px;
 	margin-bottom:10px;
 	input,select,textarea{
 		width:100%;
-		font-size:14px;
-		font-family: Fira;
-		padding: 8px 5px;
-		border:none;
 	}
 }
 .button, button{
@@ -28,5 +31,11 @@ form{
 	&--small{
 		padding: 8px 15px;
 		font-size:18px;
+	}
+	&s--right{
+		text-align:right;
+		.button{
+			margin-left:5px;
+		}
 	}
 }

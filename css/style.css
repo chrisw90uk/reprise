@@ -65,22 +65,23 @@ a {
     transform: translate(-50%, -50%);
     padding: 30px;
     background: #FFF; }
-    .freeze .popup input {
-      background: #E8E8E8; }
 
 form {
   margin: 10px 0; }
+
+input, select, textarea {
+  font-size: 14px;
+  font-family: Fira;
+  padding: 8px 5px;
+  border: none;
+  background: #E0E0E0; }
 
 .form-field {
   display: block;
   max-width: 400px;
   margin-bottom: 10px; }
   .form-field input, .form-field select, .form-field textarea {
-    width: 100%;
-    font-size: 14px;
-    font-family: Fira;
-    padding: 8px 5px;
-    border: none; }
+    width: 100%; }
 
 .button, button {
   background: #005B9A;
@@ -96,6 +97,10 @@ form {
   .button--small, button--small {
     padding: 8px 15px;
     font-size: 18px; }
+  .buttons--right, buttons--right {
+    text-align: right; }
+    .buttons--right .button, buttons--right .button {
+      margin-left: 5px; }
 
 /* Controls */
 .progress {
@@ -304,3 +309,38 @@ form {
     width: 100%; }
   .item__image {
     height: 140px; } }
+
+.social__current {
+  margin: 0 -5px;
+  padding: 30px;
+  background: #F0F0F0; }
+
+.social__items {
+  margin: 0 -5px;
+  padding: 30px;
+  background: #E0E0E0; }
+
+.social__item {
+  display: inline-block;
+  padding: 5px;
+  transition: .2s; }
+  .social__item img {
+    width: 50px;
+    height: 50px; }
+  .social__item:hover {
+    cursor: pointer;
+    transform: scale(1.1); }
+
+.social__popup {
+  width: 350px; }
+  .social__popup img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px; }
+
+.social__details {
+  display: flex;
+  margin-bottom: 20px; }
+  .social__details input {
+    flex: 1;
+    height: 30px; }

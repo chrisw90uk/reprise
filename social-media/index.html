@@ -1,0 +1,42 @@
+<html lang="eng">
+<head>
+	<title>Social Media | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper social" ng-controller="socialMedia">
+		<h2>Social Media</h2>
+		<p>Easily integrate your social media with Reprise by selecting from the options below and specifying the applicable username or URL. The corresonding icons will appear on your display page based on your chosen theme.</p>
+		<div class="social__current">
+			<h3>Edit existing social media</h3>
+			<div class="social__item" ng-repeat="item in platforms">
+				<img ng-click="editPlatform(item)" ng-src='{{ item.icon }}'/>
+			</div>
+		</div>
+		<div class="social__items">
+			<h3>Available networks</h3>
+			<div class="social__item" ng-repeat="item in platforms | orderBy: 'name'">
+				<img ng-click="selectPlatform(item)" ng-src='{{ item.icon }}'/>
+			</div>
+		</div>
+		<div ng-show="showPopup" class="social__select freeze">
+			<div class="social__popup popup">
+				<div ng-if="newItem">
+					<div ng-include="'includes/new-social.html'"></div>
+				</div>
+				<div ng-if="editItem">
+					<div ng-include="'includes/edit-social.html'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
