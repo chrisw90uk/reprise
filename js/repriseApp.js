@@ -12,7 +12,7 @@ app.controller("display",function($scope, $http){
 		$scope.social = response.data;
 	});
 	
-	//social media
+	//dates
 	$http.get("ctrl/display-dates.php").then(function(response){
 		$scope.dates = response.data;
 	});
