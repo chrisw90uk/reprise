@@ -7,6 +7,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app -->
 	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseImages.js"></script>
+	<script src="../js/repriseMediaLibrary.js"></script>
 	<!-- site js -->
 	<script src="../js/repriseCtrl.js"></script>
 </head>
@@ -21,7 +23,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage('bannerImage')" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div class="image__select">
