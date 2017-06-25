@@ -21,35 +21,43 @@ app.controller("socialMedia", function($scope, $http){
 	$scope.platforms = [
 		{
 			name: "Facebook",
-			icon: 'icons/facebook.png'
+			icon: 'icons/facebook.png',
+			url: "facebook.com/"
 		},
 		{
 			name: "Twitter",
-			icon: 'icons/twitter.png'
+			icon: 'icons/twitter.png',
+			url: "twitter.com/"
 		},
 		{
 			name: "LinkedIn",
-			icon: 'icons/linkedin.png'
+			icon: 'icons/linkedin.png',
+			url: 'linkedin.com/in/'
 		},
 		{
 			name: "Instagram",
-			icon: 'icons/instagram.png'
+			icon: 'icons/instagram.png',
+			url: 'instagram.com/'
 		},
 		{
 			name: "Pinterest",
-			icon: 'icons/pinterest.png'
+			icon: 'icons/pinterest.png',
+			url: 'pinterest.com/'
 		},
 		{
 			name: "YouTube",
-			icon: 'icons/youtube.png'
+			icon: 'icons/youtube.png',
+			url: 'youtube.com/user/'
 		},
 		{
 			name: "Google",
-			icon: 'icons/google.png'
+			icon: 'icons/google.png',
+			url: 'plus.google.com/'
 		},
 		{
 			name: "Tumblr",
-			icon: 'icons/tumblr.png'
+			icon: 'icons/tumblr.png',
+			url: '.tumblr.com'
 		},
 		{
 			name: "Snapchat",
@@ -57,19 +65,23 @@ app.controller("socialMedia", function($scope, $http){
 		},
 		{
 			name: "Flickr",
-			icon: 'icons/flickr.png'
+			icon: 'icons/flickr.png',
+			url: 'flickr.com/people/'
 		},
 		{
 			name: "Twitch",
-			icon: 'icons/twitch.png'
+			icon: 'icons/twitch.png',
+			url: 'twitch.tv/'
 		},
 		{
 			name: "Soundcloud",
-			icon: 'icons/soundcloud.png'
+			icon: 'icons/soundcloud.png',
+			url: 'soundcloud.com/'
 		},
 		{
 			name: "Vine",
-			icon: 'icons/vine.png'
+			icon: 'icons/vine.png',
+			url: 'vine.co/'
 		}
 	];
 	

@@ -2,9 +2,9 @@
 <ul>
 	<li ng-repeat="section in media" ng-class="{selected: activeTab==$index}" ng-click="changeTab($index)" class="popup__tab">{{ section.name }}</li>
 </ul>
-<div>
+<div class="media__list">
 	<div ng-show="activeTab==0" class="media__items media--images">
-		<div class="media__item" ng-repeat="image in images">
+		<div class="media__item" ng-repeat="image in images" ng-class="currentImage.id==image.id ? 'selected' : '' " ng-click="chooseNew(image)" >
 			<div>
 				<div class="item__image">
 					<img ng-src="{{image.filePath}}" src="img/img-placeholder.png" />
@@ -36,5 +36,9 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="buttons--right">
+	<a ng-click="closePopup() " class="button button--small">Cancel</a>
+	<a ng-click="saveNew()" class="button button--small">Save</a>
 </div>
 </div>

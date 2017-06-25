@@ -13,7 +13,7 @@
 	<script src="../js/repriseCtrl.js"></script>
 </head>
 <body ng-app="reprise">
-	<div class="wrapper" ng-controller="editImage">
+	<div class="wrapper" ng-controller="editImages">
 		<h2>Edit images</h2>
 		<p>Change featured images across your website using files you've previously uploaded to your media library. Alternatively, you can upload a new image.</p>
 		<div class="image__select">
@@ -33,7 +33,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage('aboutImage')" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div class="image__select">
@@ -43,7 +43,7 @@
 			</div>
 			<div class="image__btns">
 				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage()" class="button button--small">Choose from existing</a>
+				<a ng-click="selectImage('tourImage')" class="button button--small">Choose from existing</a>
 			</div>
 		</div>
 		<div ng-show="uploadActive" class="image__upload freeze">

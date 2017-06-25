@@ -17,7 +17,9 @@
 		<h2>Welcome to Chris' page</h2>
 		<h3>Social Media</h3>
 		<div class="display__social">
-			<img ng-repeat="item in social" ng-src="social-media/icons/{{ item.name | lowercase }}.png">
+			<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">
+				<img ng-src="social-media/icons/{{ item.name | lowercase }}.png">
+			</a>
 		</div>
 		<h3>Tour dates</h3>
 		<div class="display__dates">

@@ -27,7 +27,6 @@ app.controller("mediaLibrary", function($scope, $http){
 		$scope.images = response.data;
 	});
 	
-	$console.log($scope.currentImage);
 	
 	/*
 	$http.get("ctrl/audio.php").then(function(response){

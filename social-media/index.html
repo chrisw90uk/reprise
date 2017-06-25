@@ -17,13 +17,13 @@
 		<div class="social__current" ng-show="existingSocial">
 			<h3>Edit existing social media</h3>
 			<div class="social__item" ng-repeat="item in existing">
-				<img ng-click="editPlatform(item)" ng-src='icons/{{ item.name | lowercase }}.png'/>
+				<img title="{{ item.name }}" ng-click="editPlatform(item)" ng-src='icons/{{ item.name | lowercase }}.png'/>
 			</div>
 		</div>
 		<div class="social__items">
 			<h3>Available networks</h3>
 			<div class="social__item" ng-repeat="item in platforms | orderBy: 'name'" ng-hide="filterPlatforms(item)">
-				<img ng-click="selectPlatform(item)" ng-src='{{ item.icon }}'/>
+				<img title="{{ item.name }}" ng-click="selectPlatform(item)" ng-src='{{ item.icon }}'/>
 			</div>
 		</div>
 		<div ng-show="showPopup" class="social__select freeze">
