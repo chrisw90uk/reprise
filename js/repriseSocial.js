@@ -1,7 +1,9 @@
-app.controller("socialMedia", function($scope, $http){
+app.controller("socialMedia", function($scope, $http, $timeout){
 	
 	$scope.showPopup = false;
 	$scope.selected = {};
+	$scope.complete = false;
+	$scope.httpReq = false;
 	
 	
 	$scope.retrieveSocial = function (){
@@ -112,6 +114,7 @@ app.controller("socialMedia", function($scope, $http){
 	
 	$scope.newPlatform = function(){
 		console.log("submitted");
+		$scope.httpReq = true;
 		var data = JSON.stringify($scope.selected);
 		$http({
 			method: 'POST',
@@ -119,14 +122,20 @@ app.controller("socialMedia", function($scope, $http){
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: data
 		}).then(function(response){
-			alert(response.data);
+			$scope.success = response.data;
 			$scope.retrieveSocial();
 			$scope.showPopup = false;
 			$scope.newItem = false;
+			$scope.complete = true;
+			$timeout(function(){
+				$scope.httpReq = false;
+				$scope.complete = false;
+			},3000);
 		})
 	}
 	$scope.saveEdit = function(){
 		console.log("submitted");
+		$scope.httpReq = true;
 		var data = JSON.stringify($scope.selected);
 		$http({
 			method: 'POST',
@@ -134,16 +143,24 @@ app.controller("socialMedia", function($scope, $http){
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: data
 		}).then(function(response){
-			alert(response.data);
+			$scope.success = response.data;
 			$scope.retrieveSocial();
 			$scope.showPopup = false;
 			$scope.editItem = false;
+			$scope.complete = true;
+			$timeout(function(){
+				$scope.httpReq = false;
+				$scope.complete = false;
+			},3000);
 		})
 	}
 	$scope.deletePlatform = function(){
 		console.log("submitted");
+		$scope.httpReq = true;
 		var choice = confirm("Are you sure you want to delete this network?");
 		if(choice==true){
+			$scope.httpReq = true;
+			$scope.complete = false;
 			var data = JSON.stringify($scope.selected);
 			$http({
 				method: 'POST',
@@ -151,10 +168,15 @@ app.controller("socialMedia", function($scope, $http){
 				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 				data: data
 			}).then(function(response){
-				alert(response.data);
+				$scope.success = response.data;
 				$scope.retrieveSocial();
 				$scope.showPopup = false;
 				$scope.editItem = false;
+				$scope.complete = true;
+				$timeout(function(){
+					$scope.httpReq = false;
+					$scope.complete = false;
+				},3000);
 			})
 		}
 	}
