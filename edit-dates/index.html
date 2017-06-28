@@ -79,10 +79,10 @@
 				</form>
 			</div>
 		</div>
-		<div ng-class="httpReq ? 'active' : '' " class="status">
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
 			<div class="in-progress">
 			</div>
-			<div ng-class="complete ? 'active' : '' " class="complete">
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
 				<img src="../img/icons/tick.png"/>
 				<span>{{ success }}</span>
 			</div>

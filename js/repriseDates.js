@@ -1,4 +1,4 @@
-app.controller("editDates",function($scope, $http, $timeout){
+app.controller("editDates",function($scope, $http, $timeout, status){
 	
 	$scope.editingDate = {};
 	$scope.editing = false;
@@ -11,7 +11,7 @@ app.controller("editDates",function($scope, $http, $timeout){
 	
 	$scope.addDate = function(){
 		console.log("submitted");
-		$scope.httpReq = true;
+		$scope.status = status.show();
 		var formData = JSON.stringify($scope.date);
 		$http({
 			method: 'POST',
@@ -20,14 +20,13 @@ app.controller("editDates",function($scope, $http, $timeout){
 			data: formData
 		}).then(function(response){
 			$scope.success = response.data;
-			$scope.complete = true;
+			$scope.status = status.complete();
 			$http.get("ctrl/current-dates.php").then(function(response){
 				$scope.currentDates = response.data;
 				console.log("retrieved");
 			});
 			$timeout(function(){
-				$scope.httpReq = false;
-				$scope.complete = false;
+				$scope.status = status.hide();
 			},3000);
 		})
 	}	
@@ -39,7 +38,7 @@ app.controller("editDates",function($scope, $http, $timeout){
 	
 	$scope.saveDate = function(id){
 		var formData = JSON.stringify($scope.editingDate);
-		$scope.httpReq = true;
+		$scope.status = status.show();
 		$http({
 			method: 'POST',
 			url: 'ctrl/edit-date.php?id=' + id,
@@ -47,32 +46,29 @@ app.controller("editDates",function($scope, $http, $timeout){
 			data: formData
 		}).then(function(response){
 			$scope.success = response.data;
-			$scope.complete = true;
+			$scope.status = status.complete();
 			$http.get("ctrl/current-dates.php").then(function(response){
 				$scope.currentDates = response.data;
 				console.log("retrieved");
 				$scope.editing = false;
-				$scope.complete = true;
 			});
 			$timeout(function(){
-				$scope.httpReq = false;
-				$scope.complete = false;
+				$scope.status = status.hide();
 			},3000);
 		})
 	}
 	
 	$scope.deleteDate = function(id){
-		$scope.httpReq = true;
+		$scope.status = status.show();
 		$http.post('ctrl/delete-date.php?id=' + id).then(function(response){
 			$scope.success = response.data;
-			$scope.complete = true;
+			$scope.status = status.complete();
 			$http.get("ctrl/current-dates.php").then(function(response){
 				$scope.currentDates = response.data;
 				console.log("retrieved");
 			});
 			$timeout(function(){
-				$scope.httpReq = false;
-				$scope.complete = false;
+				$scope.status = status.hide();
 			},3000);
 		});
 	}

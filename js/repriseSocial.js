@@ -1,9 +1,7 @@
-app.controller("socialMedia", function($scope, $http, $timeout){
+app.controller("socialMedia", function($scope, $http, $timeout, status){
 	
 	$scope.showPopup = false;
 	$scope.selected = {};
-	$scope.complete = false;
-	$scope.httpReq = false;
 	
 	
 	$scope.retrieveSocial = function (){
@@ -114,7 +112,7 @@ app.controller("socialMedia", function($scope, $http, $timeout){
 	
 	$scope.newPlatform = function(){
 		console.log("submitted");
-		$scope.httpReq = true;
+		$scope.status = status.show();
 		var data = JSON.stringify($scope.selected);
 		$http({
 			method: 'POST',
@@ -126,16 +124,15 @@ app.controller("socialMedia", function($scope, $http, $timeout){
 			$scope.retrieveSocial();
 			$scope.showPopup = false;
 			$scope.newItem = false;
-			$scope.complete = true;
+			$scope.status = status.complete();
 			$timeout(function(){
-				$scope.httpReq = false;
-				$scope.complete = false;
+				$scope.status = status.hide();
 			},3000);
 		})
 	}
 	$scope.saveEdit = function(){
 		console.log("submitted");
-		$scope.httpReq = true;
+		$scope.status = status.show();
 		var data = JSON.stringify($scope.selected);
 		$http({
 			method: 'POST',
@@ -147,20 +144,17 @@ app.controller("socialMedia", function($scope, $http, $timeout){
 			$scope.retrieveSocial();
 			$scope.showPopup = false;
 			$scope.editItem = false;
-			$scope.complete = true;
+			$scope.status = status.complete();
 			$timeout(function(){
-				$scope.httpReq = false;
-				$scope.complete = false;
+				$scope.status = status.hide();
 			},3000);
 		})
 	}
 	$scope.deletePlatform = function(){
 		console.log("submitted");
-		$scope.httpReq = true;
 		var choice = confirm("Are you sure you want to delete this network?");
 		if(choice==true){
-			$scope.httpReq = true;
-			$scope.complete = false;
+			$scope.status = status.show();
 			var data = JSON.stringify($scope.selected);
 			$http({
 				method: 'POST',
@@ -172,10 +166,9 @@ app.controller("socialMedia", function($scope, $http, $timeout){
 				$scope.retrieveSocial();
 				$scope.showPopup = false;
 				$scope.editItem = false;
-				$scope.complete = true;
+				$scope.status = status.complete();
 				$timeout(function(){
-					$scope.httpReq = false;
-					$scope.complete = false;
+					$scope.status = status.hide();
 				},3000);
 			})
 		}
