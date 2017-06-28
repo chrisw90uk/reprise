@@ -37,57 +37,7 @@
 			</div>
 		</div>
 
-		<div ng-class="httpReq ? 'active' : '' " class="status">
-			<div class="in-progress">
-			</div>
-			<div ng-class="complete ? 'active' : '' " class="complete">
-				<img src="../img/icons/tick.png"/>
-				<span>{{ success }}</span>
-			</div>
-			<div class="error" style="display:none;">
-				<img src="../img/icons/error.png"/>
-			</div>
-		</div>
-
 	</div>
 	
 </body>
 </html>
-<style>
-.status{
-	position:fixed;
-	bottom:0;
-	right:0;
-	height:60px;
-	width: 250px;
-	transition: .3s;
-	opacity: 0;
-}
-.status div{
-	opacity: 0;
-	transition: .3s;
-}
-.status div.active{
-	opacity: 1;
-}
-.status.active{
-	opacity: 1;
-}
-.status span{
-	font-weight:bold;
-	color: #FFF;
-	display:inline-block;
-	vertical-align: middle;
-}
-.status .complete{
-	background: #44BE05;
-	padding:15px;
-	height:100%;
-}
-.status img{
-	height:100%;
-	margin-right: 10px;
-	display:inline-block;
-	vertical-align: middle;
-}
-</style>
