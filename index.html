@@ -13,8 +13,13 @@
 </head>
 
 <body ng-app="reprise" ng-controller="display">
+	<div class="display__banner" style="background-image: url('{{banner.path}}')">
+		<div class="display__banner-text">
+			<h2>Welcome to Chris' page</h2>
+		</div>
+	</div>
 	<div class="wrapper">
-		<h2>Welcome to Chris' page</h2>
+		
 		<h3>Social Media</h3>
 		<div class="display__social">
 			<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">

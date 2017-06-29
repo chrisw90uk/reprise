@@ -1,0 +1,31 @@
+.display{
+	&__banner{
+		height: 400px;
+		width:100%;
+		position:relative;
+		background-size:cover;
+		background-position:center;
+		&-text{
+			position:absolute;
+			transform: translate(-50%, -50%);
+			top: 50%;
+			left: 50%;
+		}
+		h2{
+			color: #FFF;
+		}
+	}
+	&__social{
+		position:fixed;
+		top:50%;
+		right:0;
+		transform: translateY(-50%);
+		a{
+			display:block;
+		}
+		img{
+			width:40px;
+			height:40px;
+		}
+	}
+}

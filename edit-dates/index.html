@@ -79,6 +79,17 @@
 				</form>
 			</div>
 		</div>
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

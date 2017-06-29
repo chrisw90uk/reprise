@@ -66,6 +66,37 @@ a {
     padding: 30px;
     background: #FFF; }
 
+/* loading msgs */
+.status {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 60px;
+  width: 250px;
+  transition: .3s;
+  opacity: 0; }
+  .status.active {
+    opacity: 1; }
+  .status div {
+    opacity: 0;
+    transition: .3s; }
+    .status div.active {
+      opacity: 1; }
+  .status span {
+    font-weight: bold;
+    color: #FFF;
+    display: inline-block;
+    vertical-align: middle; }
+  .status .complete {
+    background: #44BE05;
+    padding: 15px;
+    height: 100%; }
+  .status img {
+    height: 100%;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle; }
+
 form {
   margin: 10px 0; }
 
@@ -375,3 +406,29 @@ input, select, textarea {
   .social__details input {
     flex: 1;
     height: 30px; }
+
+/* Display */
+.display__banner {
+  height: 400px;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center; }
+  .display__banner-text {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; }
+  .display__banner h2 {
+    color: #FFF; }
+
+.display__social {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%); }
+  .display__social a {
+    display: block; }
+  .display__social img {
+    width: 40px;
+    height: 40px; }

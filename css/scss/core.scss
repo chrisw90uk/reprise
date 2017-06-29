@@ -71,3 +71,42 @@ a{
 		background: #FFF;
 	}
 }
+
+/* loading msgs */
+
+.status{
+	position:fixed;
+	bottom:0;
+	right:0;
+	height:60px;
+	width: 250px;
+	transition: .3s;
+	opacity: 0;
+	&.active{
+		opacity: 1;
+	}
+	div{
+		opacity: 0;
+		transition: .3s;
+		&.active{
+			opacity: 1;
+		}
+	}
+	span{
+		font-weight:bold;
+		color: #FFF;
+		display:inline-block;
+		vertical-align: middle;
+	}
+	.complete{
+		background: #44BE05;
+		padding:15px;
+		height:100%;
+	}
+	img{
+		height:100%;
+		margin-right: 10px;
+		display:inline-block;
+		vertical-align: middle;
+	}
+}
