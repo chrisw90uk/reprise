@@ -1,4 +1,4 @@
-app.controller("editImages",function($scope, $http){
+app.controller("editImages",function($scope, $http, $timeout, status){
 	
 	$scope.uploadActive = false;
 	$scope.libraryActive = false;
@@ -21,6 +21,7 @@ app.controller("editImages",function($scope, $http){
 	}
 
 	$scope.saveNew = function(){
+		$scope.status = status.show();
 		var formData = JSON.stringify($scope.currentImage);
 		$http({
 			method: 'POST',
@@ -28,11 +29,15 @@ app.controller("editImages",function($scope, $http){
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: formData
 		}).then(function(response){
-			alert(response.data);
+			$scope.success = response.data;
+			$scope.status = status.complete();
+			$scope.libraryActive = false;
+			$timeout(function(){
+				$scope.status = status.hide();
+			},3000);
 		});
 	}
 	$scope.closePopup = function(){
 		$scope.libraryActive = false;
 	}
-
 });

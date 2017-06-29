@@ -62,7 +62,10 @@
 						<label>Alt Text</label>
 						<input type="text" name="imgAlt"/>
 					</div>
-					<button type="submit">Upload File</button>
+					<div class="buttons--right">
+						<a ng-click="uploadActive = false" class="button button--small">Cancel</a>
+						<button class="button--small" type="submit">Upload File</button>
+					</div>
 				</form>
 				<div class="progress">
 					<div class="progress__status">
@@ -75,6 +78,19 @@
 		<div class="media__library freeze" ng-controller="mediaLibrary" ng-if="libraryActive" ng-show="libraryActive">
 			<div ng-include="'includes/media-library.html'"></div>
 		</div>
+
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="status.error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>
