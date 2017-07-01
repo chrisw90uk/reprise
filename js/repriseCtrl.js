@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 	});
 
-	$("form.audioUpload").submit(function(event){
+	$(".audio").on("submit","form.audioUpload", function(event){
 		event.preventDefault();
 
 		var data = new FormData();
@@ -76,7 +76,6 @@ $(document).ready(function(){
 	            console.log('ERRORS: ' + textStatus);
 	        }
 		});
-
 
 	});
 	

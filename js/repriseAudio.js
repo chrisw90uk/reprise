@@ -1,6 +1,9 @@
-app.controller("editAudio",function($scope, $http, $timeout, status){
+app.controller("editAudio",function($scope, $http, $timeout, $window, status){
 	
-	$scope.uploadActive = false;
+	$scope.popupActive = false;
+	$scope.newItem = false;
+	$scope.editItem = false;
+	$scope.editing = {};
 
 
 	$scope.retrieveAudio = function(){
@@ -12,9 +15,35 @@ app.controller("editAudio",function($scope, $http, $timeout, status){
 	$scope.retrieveAudio();
 	
 	$scope.uploadAudio = function(){
-		$scope.uploadActive = true;
+		$scope.newItem = true;
+		$scope.popupActive = true;
 	}
 
+	$scope.editAudio = function(item){
+		$scope.editing = item;
+		$scope.editItem = true;
+		$scope.popupActive = true;
+	}
+
+	$scope.saveEdits = function(item){
+		$scope.status = status.show();
+		var data = JSON.stringify($scope.editing);
+		$http({
+			method: 'POST',
+			url: 'ctrl/edit-audio.php',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			data: data
+		}).then(function(response){
+			$scope.success = response.data;
+			$scope.retrieveAudio();
+			$scope.status = status.complete();
+			closePopup();
+			$timeout(function(){
+				$scope.status = status.hide();
+			},3000);
+		})
+	}
+	
 
 	$scope.deleteAudio = function(item){
 		var choice = confirm("Are you sure you want to delete this item?");
@@ -37,39 +66,11 @@ app.controller("editAudio",function($scope, $http, $timeout, status){
 		}
 	}
 
-
+	var closePopup = $scope.closePopup = function(){
+		$scope.popupActive = false;
+		$scope.newItem = false;
+		$scope.editItem = false;
+	}
 	
-	/*
-	$scope.selectImage = function(image){
-		$scope.libraryActive = true;
-		$http.get('ctrl/get-banner.php?name=' + image).then(function(response){
-			$scope.currentImage = response.data;
-			console.log($scope.currentImage.id);
-		});
-	}
-
-	$scope.chooseNew = function(item){
-		$scope.currentImage = item;
-		console.log($scope.currentImage.name);
-	}
-
-	$scope.saveNew = function(){
-		$scope.status = status.show();
-		var formData = JSON.stringify($scope.currentImage);
-		$http({
-			method: 'POST',
-			url: 'ctrl/banner-image.php',
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			data: formData
-		}).then(function(response){
-			$scope.success = response.data;
-			$scope.status = status.complete();
-			$scope.libraryActive = false;
-			$timeout(function(){
-				$scope.status = status.hide();
-			},3000);
-		});
-	}
-
-	*/
+	
 });

@@ -1,0 +1,19 @@
+<h3>Edit {{editing.name}}</h3>
+<form>
+	<div class="form-field">
+		<label>Name</label>
+		<input type="text" ng-model="editing.name"/>
+	</div>
+	<div class="form-field">
+		<label>Project <i>(optional)</i></label>
+		<input type="text" ng-model="editing.project"/>
+	</div>
+	<div class="form-field">
+		<label>Description <i>(optional)</i></label>
+		<input type="text" ng-model="editing.description"/>
+	</div>
+	<div class="buttons--right">
+		<a ng-click="closePopup()" class="button button--small">Cancel</a>
+		<a class="button button--small" ng-click="saveEdits()">Save changes</a>
+	</div>
+</form>
