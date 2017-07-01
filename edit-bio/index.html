@@ -1,0 +1,41 @@
+<html lang="eng">
+<head>
+	<title>Edit Bio | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app and controller -->
+	<!-- angular app -->
+	<script src="../third-party/tinymce/tinymce.min.js"></script>
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseBio.js"></script>
+	<!-- tinyMCE -->
+</head>
+<script>
+</script>
+<body ng-app="reprise">
+	<div class="wrapper bio" ng-controller="editBio">
+		<h2>Edit Biography</h2>
+		<form ng-submit="saveBio()"> <!-- depreciated - look for alternative -->
+			<textarea ui-tinymce ng-model="bio.content"> 
+			</textarea>
+			<div class="buttons--right">
+				<button type="submit">Save</button>
+			</div>
+		</form>
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

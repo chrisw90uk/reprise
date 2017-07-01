@@ -1,8 +1,14 @@
-app.controller("display", function($scope, $http){
+app.controller("display", function($scope, $http, $sce){
 	
 	//banner image
 	$http.get("ctrl/display-banner.php").then(function(response){
 		$scope.banner = response.data;
+	});
+
+	//bio
+	$http.get("ctrl/display-bio.php").then(function(response){
+		$scope.bio = response.data;
+		$scope.bio.content = $sce.trustAsHtml($scope.bio.content); //check into this
 	});
 
 	//social media

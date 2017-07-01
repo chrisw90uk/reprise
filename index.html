@@ -20,6 +20,11 @@
 	</div>
 	<div class="wrapper">
 
+		<div ng-if="bio!=false" class="display__audio">
+			<h3>About</h3>
+			<div class="display__bio" ng-bind-html="bio.content"> <!-- depreciated - needs workaround -->
+			</div>
+		</div>
 		
 		<div ng-if="audio!=false" class="display__audio">
 			<h3>Tracks</h3>

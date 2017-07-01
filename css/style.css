@@ -176,6 +176,15 @@ input, select, textarea {
 .audio__items table td:last-child {
   width: 20%; }
 
+.bio__content {
+  margin-bottom: 30px; }
+
+.bio textarea {
+  height: 300px; }
+
+.bio .buttons--right {
+  margin-top: 20px; }
+
 .dashboard.wrapper {
   padding: 0; }
 
