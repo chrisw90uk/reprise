@@ -1,0 +1,13 @@
+.audio{
+	&__intro{
+		margin-bottom:30px;
+	}
+	&__popup{
+		max-width:400px;
+	}
+	&__items{
+		table td:last-child{
+			width:20%;
+		}
+	}
+}

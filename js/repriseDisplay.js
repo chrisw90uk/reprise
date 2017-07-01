@@ -9,6 +9,11 @@ app.controller("display", function($scope, $http){
 	$http.get("ctrl/display-social.php").then(function(response){
 		$scope.social = response.data;
 	});
+
+	//audio
+	$http.get("ctrl/display-audio.php").then(function(response){
+		$scope.audio = response.data;
+	});
 	
 	//dates
 	$http.get("ctrl/display-dates.php").then(function(response){

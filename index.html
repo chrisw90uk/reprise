@@ -19,15 +19,23 @@
 		</div>
 	</div>
 	<div class="wrapper">
+
 		
-		<h3>Social Media</h3>
-		<div class="display__social">
-			<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">
-				<img ng-src="social-media/icons/{{ item.name | lowercase }}.png">
-			</a>
+		<div ng-if="audio!=false" class="display__audio">
+			<h3>Tracks</h3>
+			<div class="display__date" ng-repeat="item in audio">
+				<p><strong>{{ item.name }}</strong></p>
+				<audio controls>
+					<source ng-src="{{item.filePath}}" type="audio/mpeg">
+				</audio>
+				<p>{{ item.project }}</p>
+				<p>{{ item.description }}</p>
+			</div>
 		</div>
-		<h3>Tour dates</h3>
-		<div class="display__dates">
+		
+		
+		<div ng-if="dates!=false" class="display__dates">
+			<h3>Tour dates</h3>
 			<div class="display__date" ng-repeat="item in dates">
 				<p><strong>{{ item.event }}</strong></p>
 				<small>{{ item.datetime }}</small>
@@ -35,6 +43,14 @@
 				<p>{{ item.location }}</p>
 			</div>
 		</div>
+
 	</div>
+
+	<div class="display__social">
+		<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">
+			<img ng-src="social-media/icons/{{ item.name | lowercase }}.png">
+		</a>
+	</div>
+
 </body>
 </html>

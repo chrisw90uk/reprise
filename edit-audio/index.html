@@ -1,0 +1,92 @@
+<html lang="eng">
+<head>
+	<title>Edit Audio | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseAudio.js"></script>
+	<!-- site js -->
+	<script src="../js/repriseCtrl.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper audio" ng-controller="editAudio">
+		<div class="audio__intro">
+			<h2>Edit Audio</h2>
+				<p>Upload new audio such as songs, tracks or portfolio items and choose which items you would like to appear on your websire. Add optional information such as the album or project name, or an additional description.</p>
+				<a ng-click="uploadAudio()" class="button button--small">Upload new</a>
+		</div>
+		<div class="audio__items">
+			<p ng-show="!existing">You have no existing files</p>
+			<div ng-if="existing!=false">
+				<h3>Existing Audio</h3>
+				<table>
+					<tr>
+						<th>Name</th>
+						<th>Project/Album</th>
+						<th>Description</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="item in existing">
+						<td>{{ item.name }}</td>
+						<td>{{ item.project || "N/A" }}</td>
+						<td>{{ item.description || "N/A" }}</td>
+						<td>
+							<a class="button button--small">Edit</a>
+							<a class="button button--small" ng-click="deleteAudio(item)">Delete</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div ng-show="uploadActive" class="audio__upload freeze">
+			<div class="audio__popup popup">
+				<h3>Upload audio</h3>
+				<form class="audioUpload" enctype="multipart/form-data">
+					<div class="form-field">
+						<p>Select file to upload:</p>
+						<input type="file" name="audioFile">
+					</div>
+					<div class="form-field">
+						<label>Name</label>
+						<input type="text" name="audioName"/>
+					</div>
+					<div class="form-field">
+						<label>Project <i>(optional)</i></label>
+						<input type="text" name="audioDesc1"/>
+					</div>
+					<div class="form-field">
+						<label>Description <i>(optional)</i></label>
+						<textarea name="audioDesc2"></textarea>
+					</div>
+					<div class="buttons--right">
+						<a ng-click="uploadActive = false" class="button button--small">Cancel</a>
+						<button class="button--small" type="submit">Upload File</button>
+					</div>
+				</form>
+				<div class="progress">
+					<div class="progress__status">
+						0%
+					</div>
+					<div class="progress__bar"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="status.error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

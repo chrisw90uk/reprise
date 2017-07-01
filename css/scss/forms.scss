@@ -29,13 +29,14 @@ input,select,textarea{
 		background: lighten(#005B9A,10%);
 		cursor: pointer;
 	}
-	&--small{
+	&--small, .button--small{
 		padding: 8px 15px;
 		font-size:18px;
+		line-height:1;
 	}
 	&s--right{
 		text-align:right;
-		.button{
+		.button, button{
 			margin-left:5px;
 		}
 	}
