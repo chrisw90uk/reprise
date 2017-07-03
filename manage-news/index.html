@@ -1,0 +1,32 @@
+<html lang="eng">
+<head>
+	<title>Manage News | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app and controller -->
+	<!-- angular app -->
+	<script src="../third-party/tinymce/tinymce.min.js"></script>
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseNewsManage.js"></script>
+	<!-- tinyMCE -->
+</head>
+<script>
+</script>
+<body ng-app="reprise">
+	<div class="wrapper news" ng-controller="manageNews">
+		<h2>Manage News Articles</h2>
+		<p>View, edit and publish news articles.</p>
+		<p ng-if="!news">
+			<i>You have no existing news articles. Write your first one today!</i>
+		</p>
+		<div ng-if="news!=false" class="news__existing">
+			<div class="news__article" ng-repeat="item in news">
+				<a ng-href="../edit-news?id={{ item.id }}">{{ item.name }}</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

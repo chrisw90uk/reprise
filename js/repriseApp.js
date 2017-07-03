@@ -29,3 +29,27 @@ app.service('status', function() {
     return statusMsg;
 
 });
+
+app.service('query',function(){
+
+    var queryService = {};
+    var queryString = {
+      value: null
+    }
+
+    queryService.getQuery = function(variable){
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i=0;i<vars.length;i++) {
+         var pair = vars[i].split("=");
+         if(pair[0] == variable){
+            queryString.value = pair[1];
+            return queryString.value;
+         }    
+      }
+      return queryString.value;
+    }
+
+    return queryService;
+
+});

@@ -1,25 +1,52 @@
 <html lang="eng">
 <head>
-	<title>News | Reprise</title>
+	<title>Edit News | Reprise</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<!-- angular install-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app and controller -->
-
+	<!-- angular app -->
+	<script src="../third-party/tinymce/tinymce.min.js"></script>
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseNewsEdit.js"></script>
 	<!-- tinyMCE -->
-	<script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=l7c47xro2y4s3r3mmgjob80a386v3o81w3cuzjnmsa84chg0"></script>
 </head>
 <script>
-	tinymce.init({ selector:'textarea' });
 </script>
-<body>
-	<div class="wrapper news">
-		<h2>Add news article</h2>
-		<textarea></textarea>
+<body ng-app="reprise">
+	<div class="wrapper news" ng-controller="editNews">
+		<h2>Edit News</h2>
+		<form ng-submit="saveNews()">
+			<div class="form-field">
+				<label>Title</label>
+				<input type="text" placeholder="Article title" ng-model="article.name" />
+			</div>
+			<div class="form-field">
+				<p>Status: {{  getStatus(article.changes, article.live) }}</p>
+			</div>
+			<div class="form-field">
+				<label>Content</label>
+				<textarea ui-tinymce ng-model="article.content"> 
+				</textarea>
+			</div>
+			<div class="buttons--right">
+				<button type="submit">Save</button>
+				<a class="button" ng-click="publishNews()" >Publish</a>
+			</div>
+		</form>
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

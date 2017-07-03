@@ -1,4 +1,4 @@
-app.controller("editNews",function($scope, $http, $timeout, $window, status){
+app.controller("addNews",function($scope, $http, $timeout, $window, status){
 
 	$scope.article = {};
 
