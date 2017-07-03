@@ -23,9 +23,24 @@
 			<i>You have no existing news articles. Write your first one today!</i>
 		</p>
 		<div ng-if="news!=false" class="news__existing">
-			<div class="news__article" ng-repeat="item in news">
-				<a ng-href="../edit-news?id={{ item.id }}">{{ item.name }}</a>
-			</div>
+			<table>
+			<tr>
+				<th>Article</th>
+				<th>Status</th>
+				<th>Last edited</th>
+			</tr>
+			<tr class="news__article" ng-repeat="item in news | orderBy: '-date'">
+				<td>
+					<a ng-href="../edit-news?id={{ item.id }}">{{ item.name }}</a>
+				</td>
+				<td>
+					{{ getStatus(item.changes, item.live) }}
+				</td>
+				<td>
+					{{ dateTimeString(item.date) | date: "medium" }}
+				</td>
+			</tr>
+			</table>
 		</div>
 	</div>
 </body>

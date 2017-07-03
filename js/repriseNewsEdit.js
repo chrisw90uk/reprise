@@ -10,7 +10,7 @@ app.controller("editNews",function($scope, $http, $timeout, $window, status, que
 		});
 	}
 
-	var getStatus = $scope.getStatus = function(changes, live){
+	$scope.getStatus = function(changes, live){
 		if(changes==1 && live==0){
 			return "Draft";
 		}else if(changes==1 && live==1){
@@ -18,6 +18,23 @@ app.controller("editNews",function($scope, $http, $timeout, $window, status, que
 		}else if(changes==0 && live==1){
 			return "Live";
 		}
+	}
+
+	$scope.saveNews = function(){
+		$scope.status = status.show();
+		var data = JSON.stringify($scope.article);
+		$http({
+			method: 'POST',
+			url: 'ctrl/save-news.php',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			data: data
+		}).then(function(response){
+			$scope.success = response.data;
+			$scope.status = status.complete();
+			$timeout(function(){
+				$scope.status = status.hide();
+			},3000);
+		})
 	}
 
 

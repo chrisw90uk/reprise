@@ -3,7 +3,7 @@
 
 	$id = htmlspecialchars($_GET['id']);
 
-	$sql = "SELECT name, date, content, changes, live FROM reprisecwickham.news WHERE id = :id";
+	$sql = "SELECT * FROM reprisecwickham.news WHERE id = :id";
 	$stmt = $conn->prepare($sql);
 	$stmt->bindParam(":id", $id, PDO::PARAM_STR);
 	$stmt->execute();
