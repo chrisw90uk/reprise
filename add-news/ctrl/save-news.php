@@ -9,7 +9,13 @@
 	$content = $data->content;
 	$date = date('Y/m/d H:i:s');
 	$changes = 1;
-	$live = 0;
+	$live = $data->live;
+	if($live==1){
+		$live = 1;
+	}else{
+		$live = 0;
+	}
+	
 
 	$sql = "INSERT INTO reprisecwickham.news (id, name, date, content, changes, live) VALUES (:id, :name, :date, :content, :changes, :live)";
 	$stmt = $conn->prepare($sql);
