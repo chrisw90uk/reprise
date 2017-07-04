@@ -11,7 +11,12 @@ app.controller("addNews",function($scope, $http, $timeout, $window, status){
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			data: data
 		}).then(function(response){
-			$scope.success = response.data;
+			//$scope.success = response.data;
+			$scope.success = response.data.msg;
+			$scope.article.id = response.data.id;
+
+			console.log($scope.article.id)
+
 			$scope.status = status.complete();
 			$timeout(function(){
 				$scope.status = status.hide();
