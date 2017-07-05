@@ -17,30 +17,36 @@
 </script>
 <body ng-app="reprise">
 	<div class="wrapper news" ng-controller="manageNews">
-		<h2>Manage News Articles</h2>
-		<p>View, edit and publish news articles.</p>
-		<p ng-if="!news">
-			<i>You have no existing news articles. Write your first one today!</i>
-		</p>
-		<div ng-if="news!=false" class="news__existing">
-			<table>
-			<tr>
-				<th>Article</th>
-				<th>Status</th>
-				<th>Last edited</th>
-			</tr>
-			<tr class="news__article" ng-repeat="item in news | orderBy: '-date'">
-				<td>
-					<a ng-href="../edit-news?id={{ item.id }}">{{ item.name }}</a>
-				</td>
-				<td>
-					{{ getStatus(item.changes, item.live) }}
-				</td>
-				<td>
-					{{ dateTimeString(item.date) | date: "medium" }}
-				</td>
-			</tr>
-			</table>
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
+			</div>
+		</div>
+		<div class="reprise__col reprise--main">
+			<h2>Manage News Articles</h2>
+			<p>View, edit and publish news articles.</p>
+			<p ng-if="!news">
+				<i>You have no existing news articles. Write your first one today!</i>
+			</p>
+			<div ng-if="news!=false" class="news__existing">
+				<table>
+				<tr>
+					<th>Article</th>
+					<th>Status</th>
+					<th>Last edited</th>
+				</tr>
+				<tr class="news__article" ng-repeat="item in news | orderBy: '-date'">
+					<td>
+						<a ng-href="../edit-news?id={{ item.id }}">{{ item.name }}</a>
+					</td>
+					<td>
+						{{ getStatus(item.changes, item.live) }}
+					</td>
+					<td>
+						{{ dateTimeString(item.date) | date: "medium" }}
+					</td>
+				</tr>
+				</table>
+			</div>
 		</div>
 	</div>
 </body>

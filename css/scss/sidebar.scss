@@ -1,0 +1,18 @@
+.reprise--sidebar > div{
+	padding: 0 20px;
+	height:100%;
+	a{
+		display:block;
+		padding: 15px 0;
+		text-decoration:none;
+		color: #FFF;
+		transition: .2s;
+		border-bottom: 1px solid #FFF;
+		&:hover{
+			padding-left:10px;
+		}
+		&:last-child{
+			border:none;
+		}
+	}
+}

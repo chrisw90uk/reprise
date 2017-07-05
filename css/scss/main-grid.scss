@@ -1,0 +1,14 @@
+.reprise{
+	&__col{
+		display:inline-block;
+		vertical-align:top;
+	}
+	&--sidebar{
+		width:25%;
+		background: #005B9A;
+	}
+	&--main{
+		width:75%;
+		padding: 30px 30px 0;
+	}
+}

@@ -17,23 +17,29 @@
 </script>
 <body ng-app="reprise">
 	<div class="wrapper bio" ng-controller="editBio">
-		<h2>Edit Biography</h2>
-		<form ng-submit="saveBio()"> <!-- depreciated - look for alternative -->
-			<textarea ui-tinymce ng-model="bio.content"> 
-			</textarea>
-			<div class="buttons--right">
-				<button type="submit">Save</button>
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
 			</div>
-		</form>
-		<div ng-class="status.httpReq ? 'active' : '' " class="status">
-			<div class="in-progress">
-			</div>
-			<div ng-class="status.complete ? 'active' : '' " class="complete">
-				<img src="../img/icons/tick.png"/>
-				<span>{{ success }}</span>
-			</div>
-			<div class="error" style="display:none;">
-				<img src="../img/icons/error.png"/>
+		</div>
+		<div class="reprise__col reprise--main">
+			<h2>Edit Biography</h2>
+			<form ng-submit="saveBio()"> <!-- depreciated - look for alternative -->
+				<textarea ui-tinymce ng-model="bio.content"> 
+				</textarea>
+				<div class="buttons--right">
+					<button type="submit">Save</button>
+				</div>
+			</form>
+			<div ng-class="status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ success }}</span>
+				</div>
+				<div class="error" style="display:none;">
+					<img src="../img/icons/error.png"/>
+				</div>
 			</div>
 		</div>
 	</div>

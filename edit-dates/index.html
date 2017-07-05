@@ -14,81 +14,87 @@
 </head>
 <body ng-app="reprise">
 	<div class="wrapper date__add" ng-controller="editDates">
-		<h2>Add a date</h2>
-		<p>This section can be used to create new instances of gigs, performances, shows and appeareances, as well as provide fans with a link to purchase tickets. Dates that have passed will automatically be archived, and you can view those <a href='#'>here</a>. Create a new date by using the form below.<p>
-		<p>If you require fields to be added or removed, please <a href="mailto:">contact our support team</a></p>
-		<form ng-submit="addDate()" >
-			<div class="form-field">
-				<input type="text" ng-model="date.name" placeholder="Name of Event"/>
+		<div class="reprise__col reprise--sidebar">
+				<div ng-include="'../includes/sidebar.html'">
+				</div>
 			</div>
-			<div class="form-field">
-				<input type="text" ng-model="date.venue" placeholder="Venue"/>
+		<div class="reprise__col reprise--main">
+			<h2>Add a date</h2>
+			<p>This section can be used to create new instances of gigs, performances, shows and appeareances, as well as provide fans with a link to purchase tickets. Dates that have passed will automatically be archived, and you can view those <a href='#'>here</a>. Create a new date by using the form below.</p>
+			<p>If you require fields to be added or removed, please <a href="mailto:">contact our support team</a></p>
+			<form ng-submit="addDate()" >
+				<div class="form-field">
+					<input type="text" ng-model="date.name" placeholder="Name of Event"/>
+				</div>
+				<div class="form-field">
+					<input type="text" ng-model="date.venue" placeholder="Venue"/>
+				</div>
+				<div class="form-field">
+					<input type="text" ng-model="date.location" placeholder="Location"/>
+				</div>
+				<div class="form-field">
+					<input type="date" ng-model="date.datetime" placeholder="Date"/>
+				</div>
+				<div class="form-field">
+					<input type="text" ng-model="date.tickets" placeholder="Link to tickets"/>
+				</div>
+				<button type="submit">Add date</button>
+			</form>
+			<h3>Current dates</h3>
+			<ul class="date__headers">
+				<li class="date--date">Date</li>
+				<li class="date--name">Event Name</li>
+				<li class="date--venue">Venue</li>
+				<li class="date--location">Location</li>
+			</ul>
+			<div class="date__dates">
+				<ul ng-repeat="item in currentDates">
+					<li class="date--date">{{::item.date}}</li>
+					<li class="date--name">{{::item.event}}</li>
+					<li class="date--venue">{{::item.venue}}</li>
+					<li class="date--location">{{::item.location}}</li>
+					<li>
+						<a class="button" ng-click="editDate(item)">Edit</a>
+						<a class="button" ng-click="deleteDate(item.id)">Delete</a>
+					</li>
+				</ul>
 			</div>
-			<div class="form-field">
-				<input type="text" ng-model="date.location" placeholder="Location"/>
+			<div ng-show="editing" class="date__edit">
+				<div class="date__popup">
+					<h3>Edit dates</h3>
+					<form ng-submit="saveDate(editingDate.id)" >
+						<div class="form-field">
+							<input type="text" ng-model="editingDate.event"/>
+						</div>
+						<div class="form-field">
+							<input type="text" ng-model="editingDate.venue"/>
+						</div>
+						<div class="form-field">
+							<input type="text" ng-model="editingDate.location"/>
+						</div>
+						<div class="form-field">
+							<input type="date" ng-model="editingDate.datetime"/>
+						</div>
+						<div class="form-field">
+							<input type="text" ng-model="editingDate.tickets"/>
+						</div>
+						<div class="date__edit-btns">
+							<button type="submit">Save</button>
+							<a class="button" ng-click="closePopup()">Cancel</a>
+						</div>
+					</form>
+				</div>
 			</div>
-			<div class="form-field">
-				<input type="date" ng-model="date.datetime" placeholder="Date"/>
-			</div>
-			<div class="form-field">
-				<input type="text" ng-model="date.tickets" placeholder="Link to tickets"/>
-			</div>
-			<button type="submit">Add date</button>
-		</form>
-		<h3>Current dates</h3>
-		<ul class="date__headers">
-			<li class="date--date">Date</li>
-			<li class="date--name">Event Name</li>
-			<li class="date--venue">Venue</li>
-			<li class="date--location">Location</li>
-		</ul>
-		<div class="date__dates">
-			<ul ng-repeat="item in currentDates">
-				<li class="date--date">{{::item.date}}</li>
-				<li class="date--name">{{::item.event}}</li>
-				<li class="date--venue">{{::item.venue}}</li>
-				<li class="date--location">{{::item.location}}</li>
-				<li>
-					<a class="button" ng-click="editDate(item)">Edit</a>
-					<a class="button" ng-click="deleteDate(item.id)">Delete</a>
-				</li>
-			<ul>
-		</div>
-		<div ng-show="editing" class="date__edit">
-			<div class="date__popup">
-				<h3>Edit dates</h3>
-				<form ng-submit="saveDate(editingDate.id)" >
-					<div class="form-field">
-						<input type="text" ng-model="editingDate.event"/>
-					</div>
-					<div class="form-field">
-						<input type="text" ng-model="editingDate.venue"/>
-					</div>
-					<div class="form-field">
-						<input type="text" ng-model="editingDate.location"/>
-					</div>
-					<div class="form-field">
-						<input type="date" ng-model="editingDate.datetime"/>
-					</div>
-					<div class="form-field">
-						<input type="text" ng-model="editingDate.tickets"/>
-					</div>
-					<div class="date__edit-btns">
-						<button type="submit">Save</button>
-						<a class="button" ng-click="closePopup()">Cancel</a>
-					</div>
-				</form>
-			</div>
-		</div>
-		<div ng-class="status.httpReq ? 'active' : '' " class="status">
-			<div class="in-progress">
-			</div>
-			<div ng-class="status.complete ? 'active' : '' " class="complete">
-				<img src="../img/icons/tick.png"/>
-				<span>{{ success }}</span>
-			</div>
-			<div class="error" style="display:none;">
-				<img src="../img/icons/error.png"/>
+			<div ng-class="status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ success }}</span>
+				</div>
+				<div class="error" style="display:none;">
+					<img src="../img/icons/error.png"/>
+				</div>
 			</div>
 		</div>
 	</div>

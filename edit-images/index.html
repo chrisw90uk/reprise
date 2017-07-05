@@ -14,83 +14,88 @@
 </head>
 <body ng-app="reprise">
 	<div class="wrapper" ng-controller="editImages">
-		<h2>Edit images</h2>
-		<p>Change featured images across your website using files you've previously uploaded to your media library. Alternatively, you can upload a new image.</p>
-		<div class="image__select">
-			<div class="image__info">
-				<h3>Banner</h3>
-				<small>The main image on your homepage</small>
-			</div>
-			<div class="image__btns">
-				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage('bannerImage')" class="button button--small">Choose from existing</a>
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
 			</div>
 		</div>
-		<div class="image__select">
-			<div class="image__info">
-				<h3>About</h3>
-				<small>The image which accompanies your biography.</small>
+		<div class="reprise__col reprise--main">
+			<h2>Edit images</h2>
+			<p>Change featured images across your website using files you've previously uploaded to your media library. Alternatively, you can upload a new image.</p>
+			<div class="image__select">
+				<div class="image__info">
+					<h3>Banner</h3>
+					<small>The main image on your homepage</small>
+				</div>
+				<div class="image__btns">
+					<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+					<a ng-click="selectImage('bannerImage')" class="button button--small">Choose from existing</a>
+				</div>
 			</div>
-			<div class="image__btns">
-				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage('aboutImage')" class="button button--small">Choose from existing</a>
+			<div class="image__select">
+				<div class="image__info">
+					<h3>About</h3>
+					<small>The image which accompanies your biography.</small>
+				</div>
+				<div class="image__btns">
+					<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+					<a ng-click="selectImage('aboutImage')" class="button button--small">Choose from existing</a>
+				</div>
 			</div>
-		</div>
-		<div class="image__select">
-			<div class="image__info">
-				<h3>Tour</h3>
-				<small>The image which accompanies your list of tour dates.</small>
+			<div class="image__select">
+				<div class="image__info">
+					<h3>Tour</h3>
+					<small>The image which accompanies your list of tour dates.</small>
+				</div>
+				<div class="image__btns">
+					<a ng-click="uploadImage()" class="button button--small">Upload new</a>
+					<a ng-click="selectImage('tourImage')" class="button button--small">Choose from existing</a>
+				</div>
 			</div>
-			<div class="image__btns">
-				<a ng-click="uploadImage()" class="button button--small">Upload new</a>
-				<a ng-click="selectImage('tourImage')" class="button button--small">Choose from existing</a>
+			<div ng-show="uploadActive" class="image__upload freeze">
+				<div class="image__popup popup">
+					<h3>Upload an image</h3>
+					<form class="imgUpload" enctype="multipart/form-data">
+						<div class="form-field">
+							<p>Select file to upload:</p>
+							<input type="file" name="imgFile">
+						</div>
+						<div class="form-field">
+							<label>Name</label>
+							<input type="text" name="imgName"/>
+						</div>
+						<div class="form-field">
+							<label>Alt Text</label>
+							<input type="text" name="imgAlt"/>
+						</div>
+						<div class="buttons--right">
+							<a ng-click="uploadActive = false" class="button button--small">Cancel</a>
+							<button class="button--small" type="submit">Upload File</button>
+						</div>
+					</form>
+					<div class="progress">
+						<div class="progress__status">
+							0%
+						</div>
+						<div class="progress__bar"></div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div ng-show="uploadActive" class="image__upload freeze">
-			<div class="image__popup popup">
-				<h3>Upload an image</h3>
-				<form class="imgUpload" enctype="multipart/form-data">
-					<div class="form-field">
-						<p>Select file to upload:</p>
-						<input type="file" name="imgFile">
-					</div>
-					<div class="form-field">
-						<label>Name</label>
-						<input type="text" name="imgName"/>
-					</div>
-					<div class="form-field">
-						<label>Alt Text</label>
-						<input type="text" name="imgAlt"/>
-					</div>
-					<div class="buttons--right">
-						<a ng-click="uploadActive = false" class="button button--small">Cancel</a>
-						<button class="button--small" type="submit">Upload File</button>
-					</div>
-				</form>
-				<div class="progress">
-					<div class="progress__status">
-						0%
-					</div>
-					<div class="progress__bar"></div>
+			<div class="media__library freeze" ng-controller="mediaLibrary" ng-if="libraryActive" ng-show="libraryActive">
+				<div ng-include="'includes/media-library.html'"></div>
+			</div>
+
+			<div ng-class="status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ success }}</span>
+				</div>
+				<div class="status.error" style="display:none;">
+					<img src="../img/icons/error.png"/>
 				</div>
 			</div>
 		</div>
-		<div class="media__library freeze" ng-controller="mediaLibrary" ng-if="libraryActive" ng-show="libraryActive">
-			<div ng-include="'includes/media-library.html'"></div>
-		</div>
-
-		<div ng-class="status.httpReq ? 'active' : '' " class="status">
-			<div class="in-progress">
-			</div>
-			<div ng-class="status.complete ? 'active' : '' " class="complete">
-				<img src="../img/icons/tick.png"/>
-				<span>{{ success }}</span>
-			</div>
-			<div class="status.error" style="display:none;">
-				<img src="../img/icons/error.png"/>
-			</div>
-		</div>
-
 	</div>
 </body>
 </html>
