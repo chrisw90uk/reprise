@@ -25,6 +25,7 @@ input,select,textarea{
 	font-size:22px;
 	transition: .2s;
 	display:inline-block;
+	text-decoration: none;
 	&:hover{
 		background: lighten(#005B9A,10%);
 		cursor: pointer;

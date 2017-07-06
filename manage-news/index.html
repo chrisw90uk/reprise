@@ -23,7 +23,11 @@
 		</div>
 		<div class="reprise__col reprise--main">
 			<h2>Manage News Articles</h2>
-			<p>View, edit and publish news articles.</p>
+			<p>
+				<span ng-if="!published">View, edit and publish news articles.</span>
+				<span ng-if="published" class="text--green"><b>Your article was published successfully!</b></span>
+			</p>
+			<a href="../add-news" class="button">Create new article</a> 
 			<p ng-if="!news">
 				<i>You have no existing news articles. Write your first one today!</i>
 			</p>
@@ -33,6 +37,7 @@
 					<th>Article</th>
 					<th>Status</th>
 					<th>Last edited</th>
+					<th></th>
 				</tr>
 				<tr class="news__article" ng-repeat="item in news | orderBy: '-date'">
 					<td>
@@ -44,8 +49,22 @@
 					<td>
 						{{ dateTimeString(item.date) | date: "medium" }}
 					</td>
+					<td>
+						<a class="button button--small" ng-click="deleteArticle(item.id)">Delete</a>
+					</td>
 				</tr>
 				</table>
+			</div>
+		</div>
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
+			</div>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="error" style="display:none;">
+				<img src="../img/icons/error.png"/>
 			</div>
 		</div>
 	</div>

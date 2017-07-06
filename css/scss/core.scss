@@ -48,6 +48,11 @@ a{
 	color: #71B238;
 	cursor:pointer;
 }
+.text{
+	&--green{
+		color: green;
+	}
+}
 .fa{
 	font-family: "FontAwesome";
 	font-size:60px;

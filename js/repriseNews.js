@@ -34,10 +34,9 @@ app.controller("addNews",function($scope, $http, $timeout, $window, status){
 			data: data
 		}).then(function(response){
 			$scope.success = response.data;
-			$scope.status = status.complete();
-			$timeout(function(){
-				$scope.status = status.hide();
-			},3000);
+			if($scope.success==true){
+				$window.location.href = '../manage-news?publish=success';
+			}
 		})
 	}
 

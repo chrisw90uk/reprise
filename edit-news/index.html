@@ -17,34 +17,38 @@
 </script>
 <body ng-app="reprise">
 	<div class="wrapper news" ng-controller="editNews">
-		<h2>Edit News</h2>
-		<form ng-submit="saveNews()">
-			<div class="form-field">
-				<label>Title</label>
-				<input type="text" placeholder="Article title" ng-model="article.name" />
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
 			</div>
-			<div class="form-field">
-				<p>Status: {{  getStatus(article.changes, article.live) }}</p>
-			</div>
-			<div class="form-field">
+		</div>
+		<div class="reprise__col reprise--main">
+			<h2>Edit News</h2>
+			<form ng-submit="saveNews()">
+				<div class="form-field">
+					<label>Title</label>
+					<input type="text" placeholder="Article title" ng-model="article.name" />
+				</div>
+				<div class="form-field">
+					<p>Status: {{  getStatus(article.changes, article.live) }}</p>
+				</div>
 				<label>Content</label>
 				<textarea ui-tinymce ng-model="article.content"> 
 				</textarea>
-			</div>
-			<div class="buttons--right">
-				<button type="submit">Save</button>
-				<a class="button" ng-click="publishNews()" >Publish</a>
-			</div>
-		</form>
-		<div ng-class="status.httpReq ? 'active' : '' " class="status">
-			<div class="in-progress">
-			</div>
-			<div ng-class="status.complete ? 'active' : '' " class="complete">
-				<img src="../img/icons/tick.png"/>
-				<span>{{ success }}</span>
-			</div>
-			<div class="error" style="display:none;">
-				<img src="../img/icons/error.png"/>
+				<div class="buttons--right">
+					<button type="submit">Save</button>
+					<a class="button" ng-click="publishNews()" >Publish</a>
+				</div>
+			</form>
+			<div ng-class="status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ success }}</span>
+				</div>
+				<div class="error" style="display:none;">
+					<img src="../img/icons/error.png"/>
+				</div>
 			</div>
 		</div>
 	</div>

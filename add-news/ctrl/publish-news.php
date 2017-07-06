@@ -61,7 +61,7 @@
 		$stmt->bindParam(":content", $content, PDO::PARAM_STR);
 
 		if($stmt->execute()){
-			echo "Article published!";
+			echo true;
 		}else{
 			echo "Sorry, there was a problem publishing your article.";
 		}
