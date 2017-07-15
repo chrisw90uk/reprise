@@ -46,8 +46,13 @@ small {
   line-height: 1.6; }
 
 a {
-  color: #71B238;
-  cursor: pointer; }
+  color: #339AA1;
+  cursor: pointer;
+  font-size: inherit;
+  text-decoration: none;
+  transition: .4s; }
+  a:hover {
+    color: #43bbc4; }
 
 .text--green {
   color: green; }

@@ -51,8 +51,14 @@ small{
 	line-height:1.6;
 }
 a{
-	color: #71B238;
+	color: #339AA1;
 	cursor:pointer;
+	font-size: inherit;
+	text-decoration: none;
+	transition: .4s;
+	&:hover{
+		color: lighten(#339AA1, 10%);
+	}
 }
 .text{
 	&--green{
