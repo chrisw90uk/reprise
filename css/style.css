@@ -18,8 +18,10 @@ html, body {
   margin: 0 auto;
   max-width: 1680px;
   display: flex; }
+  .wrapper.display {
+    display: block; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: FiraBold;
   font-weight: 900;
   margin-top: 0; }
@@ -29,6 +31,9 @@ h2 {
 
 h3 {
   font-size: 24px; }
+
+h4 {
+  font-size: 20px; }
 
 p, a, span, label, li {
   font-family: Fira;
@@ -492,9 +497,8 @@ input, select, textarea {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
-    left: 50%; }
-  .display__banner h2 {
-    color: #FFF; }
+    left: 50%;
+    text-align: center; }
 
 .display__social {
   position: fixed;
@@ -506,3 +510,60 @@ input, select, textarea {
   .display__social img {
     width: 40px;
     height: 40px; }
+
+.display__section {
+  padding: 30px; }
+  .display__section h3 {
+    text-align: center; }
+    .display__section h3:before {
+      content: '';
+      display: inline-block;
+      margin: 0 15px 5px 0;
+      width: 50px;
+      height: 3px;
+      background: #000; }
+    .display__section h3:after {
+      content: '';
+      display: inline-block;
+      margin: 0 0 5px 15px;
+      width: 50px;
+      height: 3px;
+      background: #000; }
+  .display__section:nth-child(odd) {
+    background: #f4f4f2; }
+
+.display__bio {
+  margin: 0 auto;
+  max-width: 700px; }
+
+.display__news {
+  padding: 30px 0 0; }
+
+.display__articles {
+  display: flex;
+  flex-wrap: wrap; }
+
+.display__article {
+  padding: 20px;
+  background: #bfbfbf;
+  width: 25%;
+  display: inline-block; }
+  .display__article:nth-child(even) {
+    background: #d9d9d9; }
+
+.display__audio {
+  padding: 30px 0 0; }
+
+.display__tracks {
+  display: flex;
+  flex-wrap: wrap; }
+
+.display__track {
+  padding: 20px;
+  background: #d9d9d9;
+  width: 33.333%;
+  display: inline-block; }
+  .display__track:nth-child(even) {
+    background: #bfbfbf; }
+  .display__track audio {
+    width: 100%; }

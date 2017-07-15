@@ -15,38 +15,60 @@
 <body ng-app="reprise" ng-controller="display">
 	<div class="display__banner" style="background-image: url('{{banner.path}}')">
 		<div class="display__banner-text">
-			<h2>Welcome to Chris' page</h2>
+			<h2>{{ title }}</h2>
+			<h3>{{ subtitle }}</h3>
 		</div>
 	</div>
-	<div class="wrapper">
+	<div class="wrapper display">
 
-		<div ng-if="bio!=false" class="display__audio">
+		<div ng-if="bio!=false" class="display__section">
 			<h3>About</h3>
 			<div class="display__bio" ng-bind-html="bio.content"> <!-- depreciated - needs workaround -->
 			</div>
 		</div>
+
+		<div ng-if="news!=false" class="display__section display__news">
+			<h3>News</h3>
+			<div class="display__articles">
+				<div class="display__article" ng-repeat="item in news | limitTo: 4 | orderBy: '-date'">
+					<p>{{ item.date | date: "mediumDate" }}</p>
+					<h4>{{ item.name }}</h4>
+					<p class="article__abstract">{{ item.content }}{{ item.content.length < 100 ? '' : '...' }}</p>
+				</div>
+			</div>
+		</div>
 		
-		<div ng-if="audio!=false" class="display__audio">
+		<div ng-if="audio!=false" class="display__section display__audio">
 			<h3>Tracks</h3>
-			<div class="display__date" ng-repeat="item in audio">
-				<p><strong>{{ item.name }}</strong></p>
-				<audio controls>
-					<source ng-src="{{item.filePath}}" type="audio/mpeg">
-				</audio>
-				<p>{{ item.project }}</p>
-				<p>{{ item.description }}</p>
+			<div class="display__tracks">
+				<div class="display__track" ng-repeat="item in audio">
+					<h4>{{ item.name }}</h4>
+					<p>{{ item.project }}</p>
+					<p>{{ item.description }}</p>
+					<audio controls>
+						<source ng-src="{{item.filePath}}" type="audio/mpeg">
+					</audio>
+				</div>
 			</div>
 		</div>
 		
 		
-		<div ng-if="dates!=false" class="display__dates">
+		<div ng-if="dates!=false" class="display__section display__dates">
 			<h3>Tour dates</h3>
-			<div class="display__date" ng-repeat="item in dates">
-				<p><strong>{{ item.event }}</strong></p>
-				<small>{{ item.datetime }}</small>
-				<p>{{ item.venue }}</p>
-				<p>{{ item.location }}</p>
-			</div>
+			<table>
+				<tr>
+					<th>Event</th>
+					<th>Venue</th>
+					<th>Location</th>
+					<th>Date</th>
+				</tr>
+				<tr ng-repeat="item in dates">
+					<td>{{ item.event }}</td>
+					<td>{{ item.venue }}</td>
+					<td>{{ item.location }}</td>
+					<td>{{ item.datetime }}</td>
+				</tr>
+			</table>
 		</div>
 
 	</div>

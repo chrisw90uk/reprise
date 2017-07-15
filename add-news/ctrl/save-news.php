@@ -1,8 +1,6 @@
 <?php require 'config.php'; ?>
 <?php
 
-	date_default_timezone_set('Europe/London');
-
 	$data = json_decode(file_get_contents("php://input"));
 	
 	$id = $data->id;

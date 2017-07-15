@@ -21,8 +21,11 @@ html, body{
 	margin: 0 auto;
 	max-width:1680px;
 	display:flex;
+	&.display{
+		display:block;
+	}
 }
-h1,h2,h3{
+h1,h2,h3,h4{
 	font-family: FiraBold;
 	font-weight:900;
 	margin-top:0;
@@ -32,6 +35,9 @@ h2{
 }
 h3{
 	font-size:24px;
+}
+h4{
+	font-size:20px;
 }
 
 p, a, span, label, li{

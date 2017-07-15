@@ -5,10 +5,29 @@ app.controller("display", function($scope, $http, $sce){
 		$scope.banner = response.data;
 	});
 
+	//details
+
+	$http.get("ctrl/display-details.php").then(function(response){
+		$scope.title = response.data[0].content;
+		$scope.subtitle = response.data[1].content;
+	});
+
 	//bio
 	$http.get("ctrl/display-bio.php").then(function(response){
 		$scope.bio = response.data;
 		$scope.bio.content = $sce.trustAsHtml($scope.bio.content); //check into this
+	});
+
+	$http.get("ctrl/display-news.php").then(function(response){
+		$scope.news = response.data;
+
+		//create abstract
+
+		angular.forEach($scope.news, function(item) {
+			var abstract = item.content;
+		    abstract = abstract.replace(/(<([^>]+)>)/ig,""); //strip tags
+		    item.content = abstract.slice(0, 100);
+		});
 	});
 
 	//social media

@@ -8,24 +8,44 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app -->
 	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseDetails.js"></script>
 	<!-- site js -->
 	<script src="../js/repriseCtrl.js"></script>
 </head>
 <body ng-app="reprise">
 	<div class="wrapper details__edit" ng-controller="editDetails">
-		<h2>Edit Details</h2>
-		<p>This section allows you to edit basic information about your act.</p>
-		<form ng-submit="editDetails()" >
-			<div class="form-field">
-				<label>Name</label>
-				<input type="text" ng-model="details.name" placeholder="Name"/>
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
 			</div>
-			<div class="form-field">
-				<label>Subtitle</label>
-				<input type="text" ng-model="details.subtitle" placeholder="Venue"/>
+		</div>
+		<div class="reprise__col reprise--main">
+			<h2>Edit Details</h2>
+			<p>This section allows you to edit basic information about your act.</p>
+			<form ng-submit="editDetails()" >
+				<div class="form-field">
+					<label>Name</label>
+					<small>The name of your act</small>
+					<input type="text" ng-model="title.title" placeholder="Name"/>
+				</div>
+				<div class="form-field">
+					<label>Subtitle</label>
+					<small>Describe your act in a single sentence.</small>
+					<input type="text" ng-model="subtitle.subtitle" placeholder="Venue"/>
+				</div>
+				<button type="submit">Edit details</button>
+			</form>
+		</div>
+		<div ng-class="status.httpReq ? 'active' : '' " class="status">
+			<div class="in-progress">
 			</div>
-			<button type="submit">Edit details</button>
-		</form>
+			<div ng-class="status.complete ? 'active' : '' " class="complete">
+				<img src="../img/icons/tick.png"/>
+				<span>{{ success }}</span>
+			</div>
+			<div class="error" style="display:none;">
+				<img src="../img/icons/error.png"/>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
