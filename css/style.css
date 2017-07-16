@@ -169,6 +169,24 @@ input, select, textarea {
     .buttons--right .button, .buttons--right button, buttons--right .button, buttons--right button {
       margin-left: 5px; }
 
+.datepicker table {
+  width: 100%; }
+  .datepicker table th {
+    background: #005B9A;
+    color: #FFF; }
+    .datepicker table th button {
+      color: #FFF; }
+  .datepicker table td {
+    font-size: 12px;
+    color: #000; }
+  .datepicker table button {
+    padding: 0;
+    background: transparent;
+    color: #000; }
+    .datepicker table button.active {
+      background: #005B9A;
+      color: #FFF; }
+
 /* Reprise grid */
 .reprise__col {
   display: inline-block;
@@ -191,6 +209,7 @@ input, select, textarea {
     text-decoration: none;
     color: #FFF;
     transition: .2s;
+    font-size: 14px;
     border-bottom: 1px solid #FFF; }
     .reprise--sidebar > div a:hover {
       padding-left: 10px; }

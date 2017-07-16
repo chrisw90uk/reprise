@@ -1,16 +1,15 @@
 <html lang="eng">
 <head>
-	<title>Add a Date | Reprise</title>
+	<title>Manage Dates | Reprise</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/wickedpicker.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<!-- angular install-->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 	<!-- angular app -->
-	<script src="../js/third-party/angular-tinymce.min.js"></script>
 	<script src="../js/repriseApp.js"></script>
 	<script src="../js/repriseDates.js"></script>
-	<!-- site js -->
 </head>
 <body ng-app="reprise">
 	<div class="wrapper date__add" ng-controller="editDates">
@@ -33,7 +32,10 @@
 					<input type="text" ng-model="date.location" placeholder="Location"/>
 				</div>
 				<div class="form-field">
-					<input type="date" ng-model="date.datetime" placeholder="Date"/>
+					<div uib-datepicker ng-model="date.date" class="datepicker" datepicker-options="options"></div>
+				</div>
+				<div class="form-field">
+					<input type="text" name="timepicker" class="timepicker" ng-model="date.time" placeholder="Time"/>
 				</div>
 				<div class="form-field">
 					<input type="text" ng-model="date.tickets" placeholder="Link to tickets"/>
@@ -73,7 +75,10 @@
 							<input type="text" ng-model="editingDate.location"/>
 						</div>
 						<div class="form-field">
-							<input type="date" ng-model="editingDate.datetime"/>
+							<div uib-datepicker ng-model="editingDate.date" class="datepicker" datepicker-options="options"></div>
+						</div>
+						<div class="form-field">
+							<input type="text" name="timepicker" class="timepicker" ng-model="editingDate.time"/>
 						</div>
 						<div class="form-field">
 							<input type="text" ng-model="editingDate.tickets"/>
@@ -98,5 +103,13 @@
 			</div>
 		</div>
 	</div>
+	<script src="../js/third-party/wickedpicker.js"></script>
+	<script>
+		var options = {
+			twentyFour: true,
+			timeSeparator: ':'
+		}
+		$('.timepicker').wickedpicker(options);
+	</script>
 </body>
 </html>
