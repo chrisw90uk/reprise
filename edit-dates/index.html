@@ -1,6 +1,7 @@
 <html lang="eng">
 <head>
 	<title>Manage Dates | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/wickedpicker.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +33,7 @@
 					<input type="text" ng-model="date.location" placeholder="Location"/>
 				</div>
 				<div class="form-field">
+					<label>Date</label>
 					<div uib-datepicker ng-model="date.date" class="datepicker" datepicker-options="options"></div>
 				</div>
 				<div class="form-field">
@@ -78,7 +80,7 @@
 							<div uib-datepicker ng-model="editingDate.date" class="datepicker" datepicker-options="options"></div>
 						</div>
 						<div class="form-field">
-							<input type="text" name="timepicker" class="timepicker" ng-model="editingDate.time"/>
+							<input type="text" name="timepicker" class="timepicker-edit" ng-model="editingDate.time"/>
 						</div>
 						<div class="form-field">
 							<input type="text" ng-model="editingDate.tickets"/>
@@ -107,9 +109,10 @@
 	<script>
 		var options = {
 			twentyFour: true,
+			now: '00:00',
 			timeSeparator: ':'
 		}
-		$('.timepicker').wickedpicker(options);
+		$('.timepicker, .timepicker-edit').wickedpicker(options);
 	</script>
 </body>
 </html>

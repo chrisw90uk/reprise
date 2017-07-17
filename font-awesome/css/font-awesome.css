@@ -11,7 +11,7 @@
   font-weight: normal;
   font-style: normal;
 }
-.fa {
+.fa, .glyphicon {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -422,10 +422,10 @@
 .fa-eject:before {
   content: "\f052";
 }
-.fa-chevron-left:before {
+.glyphicon-chevron-left:before, .fa-chevron-left:before {
   content: "\f053";
 }
-.fa-chevron-right:before {
+.glyphicon-chevron-right:before, .fa-chevron-right:before {
   content: "\f054";
 }
 .fa-plus-circle:before {
