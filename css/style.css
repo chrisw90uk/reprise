@@ -57,7 +57,7 @@ a {
 .text--green {
   color: green; }
 
-.fa {
+.fa, .glyphicon {
   font-family: "FontAwesome";
   font-size: 60px;
   color: #FFF;
@@ -173,19 +173,33 @@ input, select, textarea {
   width: 100%; }
   .datepicker table th {
     background: #005B9A;
-    color: #FFF; }
+    color: #FFF;
+    padding: 4px 2px; }
     .datepicker table th button {
       color: #FFF; }
   .datepicker table td {
-    font-size: 12px;
-    color: #000; }
+    font-size: 10px;
+    color: #000;
+    padding: 0; }
   .datepicker table button {
     padding: 0;
     background: transparent;
-    color: #000; }
+    color: #000;
+    font-family: Fira; }
     .datepicker table button.active {
       background: #005B9A;
       color: #FFF; }
+    .datepicker table button.uib-title {
+      font-size: 18px; }
+    .datepicker table button.uib-left span, .datepicker table button.uib-right span {
+      font-size: 0; }
+  .datepicker table .glyphicon {
+    font-size: 20px;
+    margin: 0; }
+
+.calendar-toggle {
+  font-size: 20px;
+  color: #000; }
 
 /* Reprise grid */
 .reprise__col {

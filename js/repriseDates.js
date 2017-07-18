@@ -76,5 +76,9 @@ app.controller("editDates",function($scope, $http, $timeout, status){
 	$scope.closePopup = function(){
 		$scope.editing = false;
 	}
+
+	$scope.options = {
+		showWeeks: false
+	}
 	
 });

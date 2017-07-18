@@ -48,22 +48,41 @@ input,select,textarea{
 		th{
 			background: #005B9A;
 			color: #FFF;
+			padding: 4px 2px;
 			button{
 				color: #FFF;
 			}
 		}
 		td{
-			font-size:12px;
+			font-size:10px;
 			color: #000;
+			padding:0;
 		}
 		button{
 			padding:0;
 			background: transparent;
 			color: #000;
+			font-family: Fira;
 			&.active{
 				background: #005B9A;
 				color: #FFF;
 			}
+			&.uib-title{
+				font-size:18px;
+			}
+			&.uib-left, &.uib-right{
+				span{
+					font-size:0;
+				}
+			}
+		}
+		.glyphicon{
+			font-size:20px;
+			margin: 0;
 		}
 	}
+}
+.calendar-toggle{
+	font-size:20px;
+	color: #000;
 }
