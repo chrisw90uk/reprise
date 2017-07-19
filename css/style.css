@@ -146,6 +146,8 @@ input, select, textarea {
   margin-bottom: 10px; }
   .form-field input, .form-field select, .form-field textarea {
     width: 100%; }
+  .form-field small {
+    display: block; }
 
 .button, button {
   background: #005B9A;
@@ -156,6 +158,7 @@ input, select, textarea {
   font-size: 22px;
   transition: .2s;
   display: inline-block;
+  line-height: 1;
   text-decoration: none; }
   .button:hover, button:hover {
     background: #0079cd;
@@ -165,6 +168,7 @@ input, select, textarea {
     font-size: 18px;
     line-height: 1; }
   .buttons--right, buttons--right {
+    margin: 10px 0;
     text-align: right; }
     .buttons--right .button, .buttons--right button, buttons--right .button, buttons--right button {
       margin-left: 5px; }

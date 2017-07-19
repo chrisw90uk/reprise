@@ -45,24 +45,27 @@
 				<button type="submit">Add date</button>
 			</form>
 			<h3>Current dates</h3>
-			<ul class="date__headers">
-				<li class="date--date">Date</li>
-				<li class="date--name">Event Name</li>
-				<li class="date--venue">Venue</li>
-				<li class="date--location">Location</li>
-			</ul>
-			<div class="date__dates">
-				<ul ng-repeat="item in currentDates">
-					<li class="date--date">{{::item.date}}</li>
-					<li class="date--name">{{::item.event}}</li>
-					<li class="date--venue">{{::item.venue}}</li>
-					<li class="date--location">{{::item.location}}</li>
-					<li>
-						<a class="button" ng-click="editDate(item)">Edit</a>
-						<a class="button" ng-click="deleteDate(item.id)">Delete</a>
-					</li>
-				</ul>
-			</div>
+			<table>
+				<tr>
+					<th>Event Name</th>
+					<th>Venue</th>
+					<th>Location</th>
+					<th>Date</th>
+					<th>Time</th>
+					<th>Actions</th>
+				</tr>
+					<tr ng-repeat="item in currentDates">
+						<td>{{::item.event}}</td>
+						<td>{{::item.venue}}</td>
+						<td>{{::item.location}}</td>
+						<td>{{::item.date}}</td>
+						<td>{{::item.time}}</td>
+						<td>
+							<a class="button button--small" ng-click="editDate(item)">Edit</a>
+							<a class="button button--small" ng-click="deleteDate(item.id)">Delete</a>
+						</td>
+					</tr>
+			</table>
 			<div ng-show="editing" class="date__edit">
 				<div class="date__popup">
 					<h3>Edit dates</h3>

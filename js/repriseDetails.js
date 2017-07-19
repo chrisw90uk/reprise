@@ -7,6 +7,12 @@ app.controller("editDetails",function($scope, $http, $timeout, $window, status){
 		subtitle: ""
 	};
 
+	$http.get("ctrl/get-details.php").then(function(response){
+		console.log(response.data);
+		$scope.title.title = response.data[0].content;
+		$scope.subtitle.subtitle = response.data[1].content;
+	});
+
 	
 
 	$scope.editDetails = function(){

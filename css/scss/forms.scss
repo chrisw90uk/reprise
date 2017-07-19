@@ -15,6 +15,9 @@ input,select,textarea{
 	input,select,textarea{
 		width:100%;
 	}
+	small{
+		display:block;
+	}
 }
 .button, button{
 	background: #005B9A;
@@ -25,6 +28,7 @@ input,select,textarea{
 	font-size:22px;
 	transition: .2s;
 	display:inline-block;
+	line-height:1;
 	text-decoration: none;
 	&:hover{
 		background: lighten(#005B9A,10%);
@@ -36,6 +40,7 @@ input,select,textarea{
 		line-height:1;
 	}
 	&s--right{
+		margin: 10px 0;
 		text-align:right;
 		.button, button{
 			margin-left:5px;
