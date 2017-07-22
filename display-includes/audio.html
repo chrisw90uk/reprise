@@ -1,0 +1,11 @@
+<h3>Tracks</h3>
+<div class="display__tracks">
+	<div class="display__track" ng-repeat="item in audio">
+		<h4>{{ item.name }}</h4>
+		<p>{{ item.project }}</p>
+		<p>{{ item.description }}</p>
+		<audio controls>
+			<source ng-src="{{item.filePath}}" type="audio/mpeg">
+		</audio>
+	</div>
+</div>

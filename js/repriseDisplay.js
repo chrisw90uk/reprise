@@ -1,4 +1,22 @@
 app.controller("display", function($scope, $http, $sce){
+	/*
+	//order
+	$http.get("ctrl/display-layout.php").then(function(response){
+		$scope.sections = response.data;
+		angular.forEach($scope.sections, function(value, key){
+			value.section = value.section.toLowerCase();
+		});
+		$scope.sections.sort(function(a,b){
+			if (a.index < b.index){
+			    return -1;
+			}
+			if (a.index > b.index){
+			    return 1;
+			}
+			return 0;
+		});
+	});
+	*/
 	
 	//banner image
 	$http.get("ctrl/display-banner.php").then(function(response){

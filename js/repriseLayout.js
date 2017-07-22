@@ -67,6 +67,7 @@ function editLayout($http, $timeout, status){
 		}).then(function(response){
 			vm.success = response.data;
 			vm.status = status.complete();
+			vm.edits = false;
 			$timeout(function(){
 				vm.status = status.hide();
 			},3000);

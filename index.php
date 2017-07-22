@@ -1,3 +1,10 @@
+<?php 
+
+	require 'ctrl/config.php';
+	require 'ctrl/display-layout.php';
+
+?>
+
 <html lang="eng">
 <head>
 	<title>Home | Reprise</title>
@@ -20,7 +27,13 @@
 		</div>
 	</div>
 	<div class="wrapper display">
-		<div class="display__section" ng-repeat="section in sections" ng-class="'display__' + section.section"  ng-include="'display-includes/' + section.section + '.html'"></div>
+		<?php foreach ($layout as $key=>$item): ?> 
+			<div class="display__section display__<?php echo strtolower($item[section]) ?>">
+				<?php 
+					include 'display-includes/'.strtolower($item[section]).'.html';
+				?>
+			</div>
+		<?php endforeach; ?>
 	</div>
 	<div class="display__social">
 		<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">

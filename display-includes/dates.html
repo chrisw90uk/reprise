@@ -1,0 +1,17 @@
+<h3>Tour dates</h3>
+<table>
+	<tr>
+		<th>Date</th>
+		<th>Time</th>
+		<th>Event</th>
+		<th>Venue</th>
+		<th>Location</th>
+	</tr>
+	<tr ng-repeat="item in dates | orderBy: 'date' ">
+		<td>{{ item.date | date: "mediumDate" }}</td>
+		<td>{{ item.time | date: "shortTime" }}</td>
+		<td>{{ item.event }}</td>
+		<td>{{ item.venue }}</td>
+		<td>{{ item.location }}</td>
+	</tr>
+</table>
