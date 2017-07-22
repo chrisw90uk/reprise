@@ -493,6 +493,19 @@ input, select, textarea {
 .news__existing {
   margin: 30px 0; }
 
+.layout__section {
+  height: 120px;
+  border: 1px solid #000;
+  padding: 20px; }
+  .layout__section a {
+    font-size: 14px; }
+
+.layout__edit .layout__section:not(:last-child) {
+  border-bottom: none; }
+
+.layout--banner {
+  border-bottom: none; }
+
 .social__current {
   margin: 0 -5px;
   padding: 30px;

@@ -1,0 +1,58 @@
+<html lang="eng">
+<head>
+	<title>Edit Layout | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/wickedpicker.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseLayout.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper date__add" ng-controller="editLayout as vm">
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
+			</div>
+		</div>
+		<div class="reprise__col reprise--main">
+			<h2>Edit Layout</h2>
+			<p>Change the order and settings of each of your homepage sections. Use the arrows to reorder the sections and click on a section to edit its settings.</p>
+			<div class="layout__sections">
+				<div class="layout__section layout--banner">
+					<h3>Banner</h3>
+				</div>
+				<div class="layout__edit">
+					<div class="layout__section" ng-repeat="section in vm.sections">
+						<div class="section__select">
+							<h3>{{ section.section }}</h3>
+						</div>
+						<div class="section__move">
+							<a class="button button--small" ng-hide="$index==0" ng-click="vm.moveUp(section)">Up</a>
+							<a class="button button--small" ng-hide="$index==(vm.sections.length - 1)" ng-click="vm.moveDown(section)">Down</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="vm.edits" class="buttons--right">
+				<a class="button" ng-click="vm.discardChanges()">Discard changes</a>
+				<a class="button" ng-click="vm.saveChanges()">Save changes</a>
+			</div>
+			<div ng-class="vm.status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="vm.status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ vm.success }}</span>
+				</div>
+				<div class="error" style="display:none;">
+					<img src="../img/icons/error.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
