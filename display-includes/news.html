@@ -1,6 +1,6 @@
 <h3>News</h3>
 <div class="display__articles">
-	<div class="display__article" ng-repeat="item in news | limitTo: 4 | orderBy: '-date'" ng-class="item.featured==1 ? 'article--featured' : '' ">
+	<div class="display__article" ng-repeat="item in news | limitTo: 4 | orderBy: ['-featured','-date']" ng-class="item.featured==1 ? 'article--featured' : '' ">
 		<p>{{ item.date | date: "mediumDate" }}</p>
 		<h4><a ng-href="news?id={{ item.id }}">{{ item.name }}</a></h4>
 		<p class="article__abstract">{{ item.content }}{{ item.content.length < 100 ? '' : '...' }}</p>

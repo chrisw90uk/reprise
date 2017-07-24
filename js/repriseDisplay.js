@@ -36,6 +36,8 @@ app.controller("display", function($scope, $http, $sce){
 		$scope.bio.content = $sce.trustAsHtml($scope.bio.content); //check into this
 	});
 
+	//news
+
 	$http.get("ctrl/display-news.php").then(function(response){
 		$scope.news = response.data;
 
@@ -46,7 +48,9 @@ app.controller("display", function($scope, $http, $sce){
 		    abstract = abstract.replace(/(<([^>]+)>)/ig,""); //strip tags
 		    item.content = abstract.slice(0, 100);
 		});
+
 	});
+
 
 	//social media
 	$http.get("ctrl/display-social.php").then(function(response){
