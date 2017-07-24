@@ -28,8 +28,32 @@
 				<span ng-if="published" class="text--green"><b>Your article was published successfully!</b></span>
 			</p>
 			<a href="../add-news" class="button">Create new article</a> 
+			<h3>Live articles</h3>
+			<p ng-if="!liveNews">
+				<i>You have no live news articles. Publish one today!</i>
+			</p>
+			<div ng-if="liveNews!=false" class="news__existing">
+				<table>
+				<tr>
+					<th>Article</th>
+					<th>Featured?</th>
+				</tr>
+				<tr class="news__article" ng-repeat="item in liveNews | orderBy: '-date'">
+					<td>
+						{{ item.name }}
+					</td>
+					<td>
+						<input name="featured" type="radio" ng-click="featuredChange(item)" ng-checked="item.featured==1" />
+					</td>
+				</tr>
+				</table>
+				<div class="buttons--right">
+					<a class="button" ng-show="featuredEdit" ng-click="saveFeatured()">Save featured article</a>
+				</div>
+			</div>
+			<h3>All articles</h3>
 			<p ng-if="!news">
-				<i>You have no existing news articles. Write your first one today!</i>
+				<i>You have no live news articles. Publish one today!</i>
 			</p>
 			<div ng-if="news!=false" class="news__existing">
 				<table>
