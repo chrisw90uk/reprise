@@ -77,7 +77,11 @@ app.controller("manageNews",function($scope, $http, $timeout, $window, $location
 	$scope.featuredChange = function(article){
 		angular.forEach($scope.liveNews, function(value, key){
 			if(value==article){
-				value.featured = 1;
+				if(value.featured==1){
+					value.featured = 0;
+				}else{
+					value.featured = 1;
+				}
 			}else{
 				value.featured = 0;
 			}

@@ -32,6 +32,7 @@
 							<th>Name</th>
 							<th>Project/Album</th>
 							<th>Description</th>
+							<th>Featured?</th>
 							<th></th>
 						</tr>
 						<tr ng-repeat="item in existing">
@@ -39,11 +40,17 @@
 							<td>{{ ::item.project || "N/A" }}</td>
 							<td>{{ ::item.description || "N/A" }}</td>
 							<td>
+								<input type="checkbox" ng-click="featuredChange(item)" ng-checked="item.featured==1" />
+							</td>
+							<td>
 								<a class="button button--small" ng-click="editAudio(item)">Edit</a>
 								<a class="button button--small" ng-click="deleteAudio(item)">Delete</a>
 							</td>
 						</tr>
 					</table>
+					<div class="buttons--right">
+						<a class="button" ng-show="featuredEdit" ng-click="saveFeatured()">Save featured article</a>
+					</div>
 				</div>
 			</div>
 			<div ng-show="popupActive" class="audio__upload freeze">
