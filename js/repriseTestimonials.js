@@ -4,10 +4,14 @@ function editTestimonials($http, $timeout, status){
 	var vm = this;
 	vm.testimonials = [];
 	vm.testimonial = {};
+	vm.editing = {};
 	vm.popupActive = false;
 	vm.newItem = false;
+	vm.editItem = false;
 	vm.addTestimonial = addTestimonial;
 	vm.saveTestimonial = saveTestimonial;
+	vm.editTestimonial = editTestimonial;
+	vm.saveChanges = saveChanges;
 
 	function activate(){
 		$http.get("ctrl/get-testimonials.php").then(function(response){
@@ -19,7 +23,14 @@ function editTestimonials($http, $timeout, status){
 
 	function addTestimonial(){
 		vm.popupActive = true;
+		vm.editItem = false;
 		vm.newItem = true;
+	}
+	function editTestimonial(item){
+		vm.editing = item;
+		vm.popupActive = true;
+		vm.newItem = false;
+		vm.editItem = true;
 	}
 
 	function saveTestimonial(){
@@ -38,6 +49,10 @@ function editTestimonials($http, $timeout, status){
 				vm.status = status.hide();
 			},3000);
 		})
+	}
+
+	function saveChanges(){
+		
 	}
 	
 }

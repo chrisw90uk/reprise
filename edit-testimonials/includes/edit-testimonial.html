@@ -2,18 +2,18 @@
 <form>
 	<div class="form-field">
 		<label>Name</label>
-		<input type="text" ng-model="vm.testimonial.name"/>
+		<input type="text" ng-model="vm.editing.name"/>
 	</div>
 	<div class="form-field">
 		<label>Project <i>(optional)</i></label>
-		<input type="text" ng-model="vm.testimonial.description"/>
+		<input type="text" ng-model="vm.editing.description"/>
 	</div>
 	<div class="form-field">
 		<label>Testimonial</label>
-		<textarea type="text" ng-model="vm.testimonial.content"/>
+		<textarea type="text" ng-model="vm.editing.content"/>
 	</div>
 	<div class="buttons--right">
 		<a ng-click="vm.popupActive = false" class="button button--small">Cancel</a>
-		<a class="button button--small" ng-click="vm.saveTestimonial()">Add</a>
+		<a class="button button--small" ng-click="vm.saveChanges()">Save</a>
 	</div>
 </form>
