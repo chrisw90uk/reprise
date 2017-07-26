@@ -1,0 +1,19 @@
+<h3>Add testimonial</h3>
+<form>
+	<div class="form-field">
+		<label>Name</label>
+		<input type="text" ng-model="vm.testimonial.name"/>
+	</div>
+	<div class="form-field">
+		<label>Project <i>(optional)</i></label>
+		<input type="text" ng-model="vm.testimonial.description"/>
+	</div>
+	<div class="form-field">
+		<label>Testimonial</label>
+		<textarea type="text" ng-model="vm.testimonial.content"/>
+	</div>
+	<div class="buttons--right">
+		<a ng-click="closePopup()" class="button button--small">Cancel</a>
+		<a class="button button--small" ng-click="vm.saveTestimonial()">Add</a>
+	</div>
+</form>

@@ -1,0 +1,72 @@
+<html lang="eng">
+<head>
+	<title>Edit testimonials | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseTestimonials.js"></script>
+</head>
+<body ng-app="reprise">
+	<div class="wrapper audio" ng-controller="editTestimonials as vm">
+		<div class="reprise__col reprise--sidebar">
+			<div ng-include="'../includes/sidebar.html'">
+			</div>
+		</div>
+		<div class="reprise__col reprise--main">
+			<div class="testimonial__intro">
+				<h2>Edit Testimonials</h2>
+				<p>Add feedback and reviews from your clients to display on your page. Use the table below to select which reviews you would like to display.</p>
+				<a ng-click="vm.addTestimonial()" class="button button--small">Add new</a>
+			</div>
+			<div class="testimonial__items">
+				<p ng-show="!vm.testimonials">You have no existing testimonials. Add one today!</p>
+				<div ng-if="vm.testimonials!=false">
+					<h3>Existing Testmonials</h3>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Comment</th>
+							<th></th>
+						</tr>
+						<tr ng-repeat="item in vm.testimonials">
+							<td>{{ ::item.name }}</td>
+							<td>{{ ::item.description || "N/A" }}</td>
+							<td>{{ ::item.content }}</td>
+							<td>
+								<a class="button button--small" ng-click="vm.editTestimonial(item)">Edit</a>
+								<a class="button button--small" ng-click="vm.deleteTestimonial(item)">Delete</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div ng-show="vm.popupActive" class="testimonial__upload freeze">
+				<div class="testimonial__popup popup">
+					<div ng-if="vm.newItem">
+						<div ng-include="'includes/new-testimonial.html'"></div>
+					</div>
+					<div ng-if="vm.editItem">
+						<div ng-include="'includes/edit-testimonial.html'"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div ng-class="vm.status.httpReq ? 'active' : '' " class="status">
+				<div class="in-progress">
+				</div>
+				<div ng-class="vm.status.complete ? 'active' : '' " class="complete">
+					<img src="../img/icons/tick.png"/>
+					<span>{{ vm.success }}</span>
+				</div>
+				<div class="vm.status.error" style="display:none;">
+					<img src="../img/icons/error.png"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
