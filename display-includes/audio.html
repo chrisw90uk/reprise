@@ -1,6 +1,6 @@
 <h3>Tracks</h3>
 <div class="display__tracks">
-	<div class="display__track" ng-repeat="item in audio">
+	<div class="display__track" ng-repeat="item in audio | orderBy: '-featured' " ng-class="item.featured==1 ? 'track--featured' : '' ">
 		<h4>{{ item.name }}</h4>
 		<p>{{ item.project }}</p>
 		<p>{{ item.description }}</p>
