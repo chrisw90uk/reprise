@@ -52,7 +52,23 @@ function editTestimonials($http, $timeout, status){
 	}
 
 	function saveChanges(){
-		
+		var data = JSON.stringify(vm.editing);
+		vm.status = status.show();
+		console.log("saving");
+		$http({
+			method: 'POST',
+			url: 'ctrl/edit-testimonial.php',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			data: data
+		}).then(function(response){
+			vm.success = response.data;
+			vm.status = status.complete();
+			vm.popupActive = false;
+			activate();
+			$timeout(function(){
+				vm.status = status.hide();
+			},3000);
+		})
 	}
 	
 }
