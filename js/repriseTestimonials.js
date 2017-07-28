@@ -11,6 +11,7 @@ function editTestimonials($http, $timeout, status){
 	vm.addTestimonial = addTestimonial;
 	vm.saveTestimonial = saveTestimonial;
 	vm.editTestimonial = editTestimonial;
+	vm.deleteTestimonial = deleteTestimonial;
 	vm.saveChanges = saveChanges;
 
 	function activate(){
@@ -44,6 +45,7 @@ function editTestimonials($http, $timeout, status){
 		}).then(function(response){
 			vm.success = response.data;
 			vm.status = status.complete();
+			activate();
 			vm.popupActive = false;
 			$timeout(function(){
 				vm.status = status.hide();
@@ -69,6 +71,21 @@ function editTestimonials($http, $timeout, status){
 				vm.status = status.hide();
 			},3000);
 		})
+	}
+
+	function deleteTestimonial(id){
+		var choice = confirm("Are you sure you want to delete this item?");
+		if(choice==true){
+			vm.status = status.show();
+			$http.post('ctrl/delete-testimonial.php?id=' + id).then(function(response){
+				vm.success = response.data;
+				vm.status = status.complete();
+				activate();
+				$timeout(function(){
+					vm.status = status.hide();
+				},3000);
+			});
+		}
 	}
 	
 }

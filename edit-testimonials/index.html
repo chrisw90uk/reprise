@@ -38,14 +38,14 @@
 							<td>{{ ::item.content }}</td>
 							<td>
 								<a class="button button--small" ng-click="vm.editTestimonial(item)">Edit</a>
-								<a class="button button--small" ng-click="vm.deleteTestimonial(item)">Delete</a>
+								<a class="button button--small" ng-click="vm.deleteTestimonial(item.id)">Delete</a>
 							</td>
 						</tr>
 					</table>
 				</div>
 			</div>
 			<div ng-show="vm.popupActive" class="testimonial__upload freeze">
-				<div class="testimonial__popup popup">
+				<div class="popup popup--small">
 					<div ng-if="vm.newItem">
 						<div ng-include="'includes/new-testimonial.html'"></div>
 					</div>
