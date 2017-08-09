@@ -7,12 +7,11 @@ function signUpCtrl($http, $timeout, status){
 		username: '',
 		email: ''
 	};
-
+	
 	//validation
-
+	vm.pwdMatch = pwdMatch;
 	vm.submitted = false;
 	vm.validated = false;
-	vm.emailValid;
 
 	function activate(){
 		console.log("hello world");
@@ -20,10 +19,25 @@ function signUpCtrl($http, $timeout, status){
 
 	activate();
 
+	
 	//validation
 
+	function pwdMatch(){
+		if(vm.details.pwd === vm.details.pwdchk){
+			vm.validated = true;
+			return true;
+		}else{
+			vm.validated = false;
+			return false;
+		}
+	}
+
+	//submit
+
 	function signUp(){
-		console.log(vm.details);
+		if(vm.validated){
+			console.log(vm.details);
+		}
 	}
 	
 }

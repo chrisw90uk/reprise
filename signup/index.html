@@ -20,19 +20,26 @@
 			<div class="signup__details">
 				<div class="form-field">
 					<label>Username</label>
-					<input type="text" ng-model="vm.details.username" required/>
+					<input type="text" ng-model-options="{ 'updateOn': 'blur'}" ng-model="vm.details.username" name="user" required/>
+					<p style="color:red" ng-if="signUpForm.user.$touched && signUpForm.user.$invalid">Please enter a valid username</p>
+
 				</div>
 				<div class="form-field">
 					<label>Email</label>
-					<input type="email" ng-model-options="{'allowInvalid': true}" ng-model="vm.details.email" required/>
+					<input type="email" ng-model-options="{'updateOn': 'blur'}" ng-model="vm.details.email" name="email" required/>
+					<p style="color:red" ng-if="signUpForm.email.$touched && signUpForm.email.$invalid">Please enter a valid email address</p>
 				</div>
 				<div class="form-field">
 					<label>Password</label>
-					<input type="password" ng-model="vm.details.pass" required>
+					<input type="password" ng-model-options="{ 'updateOn': 'blur'}" ng-model="vm.details.pwd" ng-minlength=6 name="pwd" required>
+					<p style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$invalid">Please enter a valid password</p>
+					<p style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$error.minlength">Your password must be at least 6 characters in length.</p>
 				</div>
 				<div class="form-field">
 					<label>Confirm Password</label>
-					<input type="password" ng-model="vm.details.passchk" required>
+					<input type="password" ng-model-options="{ 'updateOn': 'blur'}" ng-model="vm.details.pwdchk" name="pwd-chk" ng-change="vm.pwdMatch()" required>
+					<p style="color:red" ng-if="signUpForm.pwdchk.$touched && signUpForm.pwd.$invalid">Please confirm your password</p>
+					<p style="color:red" ng-if="!vm.pwdMatch()">Your passwords do not match</p>
 				</div>
 			</div>
 			<h3>Choose the act that best describes you</h3>
@@ -73,7 +80,8 @@
 					</label>
 				</div>
 			</div>
-			<button type="submit">Sign Up</button>
+
+			<button ng-if="signUpForm.$valid" type="submit">Sign Up</button>
 		</form>
 	</div>
 </body>
