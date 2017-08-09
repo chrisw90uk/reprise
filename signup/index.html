@@ -31,9 +31,12 @@
 				</div>
 				<div class="form-field">
 					<label>Password</label>
-					<input type="password" ng-model-options="{ 'updateOn': 'blur'}" ng-model="vm.details.pwd" ng-minlength=6 name="pwd" required>
+					<input type="password" ng-model-options="{ 'updateOn': 'blur'}" ng-model="vm.details.pwd" ng-minlength=6 ng-pattern="/[A-Z]*[0-9]/g" name="pwd" required>
 					<p style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$invalid">Please enter a valid password</p>
-					<p style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$error.minlength">Your password must be at least 6 characters in length.</p>
+					<ul>
+						<li style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$error.minlength">Your password must be at least 6 characters in length.</li>
+						<li style="color:red" ng-if="signUpForm.pwd.$touched && signUpForm.pwd.$error.pattern">Your password must contain a capital letter and a number.</li>
+					</ul>
 				</div>
 				<div class="form-field">
 					<label>Confirm Password</label>
