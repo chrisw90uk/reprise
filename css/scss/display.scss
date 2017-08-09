@@ -90,6 +90,76 @@
 			width:100%;
 		}
 	}
+	.testimonial{
+		width: percentage(1/3);
+		display:flex;
+		padding:0 40px;
+		flex-direction: column;
+		&__list{
+			display:flex;
+			flex-wrap: wrap;
+		}
+		blockquote{
+			font-family: Fira;
+			line-height:1.8;
+			font-size:12px;
+			padding:15px;
+			border: 1px solid #ccc;
+			border-radius: 15px;
+			position: relative;
+			margin:0;
+			background: #FFF;
+			box-shadow: 10px 10px 17px -7px rgba(0,0,0,0.1);
+			flex:1;
+			margin-bottom:20px;
+			&:before{
+				content: '';
+				display: block;
+			    position:absolute;
+			    top:100%;
+			    right:39px;
+			    width: 0;
+			    height: 0;
+			    border-style: solid;
+			    border-width: 42px 42px 0 0;
+			    border-color: #ccc transparent transparent transparent;
+			}
+			&:after{
+				content: '';
+				display: block;
+			    position:absolute;
+			    top:100%;
+			    right:40px;
+			    width: 0;
+			    height: 0;
+			    border-style: solid;
+			    border-width: 40px 40px 0 0;
+			    border-color: #FFF transparent transparent transparent;
+			}
+		}
+		&__image{
+			height:80px;
+			width:80px;
+			border-radius: 50%;
+			overflow: hidden;
+			display:inline-block;
+			vertical-align:middle;
+			margin-right:20px;
+		}
+		&__author{
+			display:inline-block;
+			vertical-align:middle;
+			width:200px;
+		}
+		img{
+			height:100%;
+			margin: 0 auto;
+			display:block;
+		}
+		p{
+			margin: 0;
+		}
+	}
 	.article{
 		&--featured{
 			position:relative;

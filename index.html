@@ -21,6 +21,36 @@
 	</div>
 	<div class="wrapper display">
 		<div class="display__section" ng-repeat="section in sections" ng-class="'display__' + section.section"  ng-include="'display-includes/' + section.section + '.html'"></div>
+		<div class="display__section display__testimonials">
+			<div class="testimonial">
+					<blockquote>
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+					</blockquote>
+					<div class="testimonial__info">
+						<div class="testimonial__image">
+							<img src="img/thumb.jpeg">
+						</div>
+						<div class="testimonial__author">
+							<p>Chris Wickham</p>
+							<p><em>Chris Industries</em></p>
+						</div>
+					</div>
+			</div>
+			<div class="testimonial">
+					<blockquote>
+						It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+					</blockquote>
+					<div class="testimonial__info">
+						<div class="testimonial__image">
+							<img src="img/thumb.jpeg">
+						</div>
+						<div class="testimonial__author">
+							<p>Chris Wickham</p>
+							<p><em>Chris Industries</em></p>
+						</div>
+					</div>
+			</div>
+		</div>
 	</div>
 	<div class="display__social">
 		<a ng-repeat="item in social" ng-href="http://{{item.url}}{{item.handle}}">

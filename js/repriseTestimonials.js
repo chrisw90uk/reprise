@@ -45,6 +45,7 @@ function editTestimonials($http, $timeout, status){
 		}).then(function(response){
 			vm.success = response.data;
 			vm.status = status.complete();
+			vm.testimonial = {};
 			activate();
 			vm.popupActive = false;
 			$timeout(function(){

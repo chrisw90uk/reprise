@@ -67,4 +67,9 @@ app.controller("display", function($scope, $http, $sce){
 		$scope.dates = response.data;
 	});
 		
+	//testimonials
+	$http.get("ctrl/display-testimonials.php").then(function(response){
+		$scope.testimonials = response.data;
+	});
+
 });   

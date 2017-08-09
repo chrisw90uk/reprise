@@ -1,0 +1,18 @@
+<h3>Testimonials</h3>
+<p ng-if="!testimonials"><em>Coming soon..</em></p>
+<div ng-if="testimonials!=false" class="testimonial__list">
+	<div class="testimonial" ng-repeat="testimonial in testimonials">
+		<blockquote>
+			{{ testimonial.content }}
+		</blockquote>
+		<div class="testimonial__info">
+			<div class="testimonial__image">
+				<img src="img/thumb.jpeg">
+			</div>
+			<div class="testimonial__author">
+				<p>{{ testimonial.name }}</p>
+				<p><em>{{ testimonial.description }}</em></p>
+			</div>
+		</div>
+	</div>
+</div>
