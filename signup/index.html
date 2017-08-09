@@ -1,0 +1,80 @@
+<html lang="eng">
+<head>
+	<title>Sign Up | Reprise</title>
+	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/wickedpicker.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<!-- angular install-->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+	<!-- angular app -->
+	<script src="../js/repriseApp.js"></script>
+	<script src="../js/repriseSignup.js"></script>
+</head>
+<body ng-app="reprise">
+	<div ng-controller="signUpCtrl as vm">
+		<h2>Sign up</h2>
+		<form name="signUpForm" ng-submit="vm.signUp()">
+			<h3>Account details</h3>
+			<div class="signup__details">
+				<div class="form-field">
+					<label>Username</label>
+					<input type="text" ng-model="vm.details.username" required/>
+				</div>
+				<div class="form-field">
+					<label>Email</label>
+					<input type="email" ng-model-options="{'allowInvalid': true}" ng-model="vm.details.email" required/>
+				</div>
+				<div class="form-field">
+					<label>Password</label>
+					<input type="password" ng-model="vm.details.pass" required>
+				</div>
+				<div class="form-field">
+					<label>Confirm Password</label>
+					<input type="password" ng-model="vm.details.passchk" required>
+				</div>
+			</div>
+			<h3>Choose the act that best describes you</h3>
+			<div class="signup__type">
+				<div class="form-field radio">
+					<input type="radio" name="type" ng-model="vm.details.type" value="music-pop" required>
+					<label>
+						Artist/Band
+						<small>Writing/performing popular music as a solo artist, duet or band.</small>
+					</label>
+				</div>
+				<div class="form-field radio">
+					<input type="radio" name="type" ng-model="vm.details.type" value="music-pro" required>
+					<label>
+						Soloist/Ensemble
+						<small>Writing/performing music for other professional capacities e.g. weddings, formal functions</small>
+					</label>
+				</div>
+				<div class="form-field radio">
+					<input type="radio" name="type" ng-model="vm.details.type" value="music-composer" required>
+					<label>
+						Composer
+						<small>Composing music for concert, visual media and other purposes.</small>
+					</label>
+				</div>
+				<div class="form-field radio">
+					<input type="radio" name="type" ng-model="vm.details.type" value="actor" required>
+					<label>
+						Actor
+						<small>Performing on stage or screen.</small>
+					</label>
+				</div>
+				<div class="form-field radio">
+					<input type="radio" name="type" ng-model="vm.details.type" value="voice-actor" required>
+					<label>
+						Voice Actor
+						<small>Performing/recording voiceovers for radio, visual media and other purposes.</small>
+					</label>
+				</div>
+			</div>
+			<button type="submit">Sign Up</button>
+		</form>
+	</div>
+</body>
+</html>
